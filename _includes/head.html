@@ -1,41 +1,63 @@
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      tags: 'ams'
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-      // 告诉 MathJax 在渲染时执行额外的复制文本注入操作
-      renderActions: {
-        addCopyText: [155,
-          (doc) => {for (const math of doc.math) MathJax.config.addCopyText(math, doc)},
-          (math, doc) => MathJax.config.addCopyText(math, doc)
-        ]
-      }
-    },
-    // 将原始的 LaTeX 源码包裹上定界符，作为隐藏文本插入
-    addCopyText(math, doc) {
-      const adaptor = doc.adaptor;
-      const text = adaptor.node('mjx-copytext', {'aria-hidden': true}, [
-        adaptor.text(math.start.delim + math.math + math.end.delim)
-      ]);
-      adaptor.append(math.typesetRoot, text);
-    },
-    // 注入隐藏文本的 CSS 样式，使其在页面上不可见，但能被光标光顾
-    startup: {
-      ready() {
-        MathJax._.output.chtml_ts.CHTML.commonStyles['mjx-copytext'] = {
-          display: 'inline-block',
-          position: 'absolute',
-          top: 0, left: 0, width: 0, height: 0,
-          opacity: 0, overflow: 'hidden'
-        };
-        MathJax.startup.defaultReady();
-      }
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {%- feed_meta -%}
+
+  <style>
+    .mjx-copytext {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      clip-path: inset(50%);
+      border: 0;
+      white-space: nowrap;
     }
-  };
-</script>
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    mjx-container {
+      position: relative !important;
+    }
+  </style>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        tags: 'ams'
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        // 2. 渲染动作：只负责把包裹在 span 里的源码插入到 DOM 中
+        renderActions: {
+          addCopyText: [155,
+            (doc) => {
+              for (const math of doc.math) {
+                MathJax.config.addCopyText(math, doc);
+              }
+            },
+            (math, doc) => {
+              MathJax.config.addCopyText(math, doc);
+            }
+          ]
+        }
+      },
+      addCopyText(math, doc) {
+        const adaptor = doc.adaptor;
+        // 创建一个带有 .mjx-copytext 类的 span 标签
+        const text = adaptor.node('span', {className: 'mjx-copytext', 'aria-hidden': true}, [
+          adaptor.text(math.start.delim + math.math + math.end.delim)
+        ]);
+        adaptor.append(math.typesetRoot, text);
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
