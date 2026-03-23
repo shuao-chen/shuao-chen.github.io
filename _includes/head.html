@@ -16,7 +16,34 @@
         tags: 'ams'
       },
       options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        // 1. 添加渲染操作，在生成公式 DOM 时触发
+        renderActions: {
+          addCopyText: [155,
+            (doc) => {for (const math of doc.math) MathJax.config.addCopyText(math, doc)},
+            (math, doc) => MathJax.config.addCopyText(math, doc)
+          ]
+        }
+      },
+      // 2. 核心函数：将原始的 LaTeX 源码包裹上定界符，作为隐藏文本插入
+      addCopyText(math, doc) {
+        const adaptor = doc.adaptor;
+        const text = adaptor.node('mjx-copytext', {'aria-hidden': true}, [
+          adaptor.text(math.start.delim + math.math + math.end.delim)
+        ]);
+        adaptor.append(math.typesetRoot, text);
+      },
+      // 3. 在启动时注入隐藏文本的 CSS 样式，使其在页面上不可见，但能被光标选中
+      startup: {
+        ready() {
+          MathJax._.output.chtml_ts.CHTML.commonStyles['mjx-copytext'] = {
+            display: 'inline-block',
+            position: 'absolute',
+            top: 0, left: 0, width: 0, height: 0,
+            opacity: 0, overflow: 'hidden'
+          };
+          MathJax.startup.defaultReady();
+        }
       }
     };
   </script>
