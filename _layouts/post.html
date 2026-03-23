@@ -3,6 +3,8 @@ layout: default
 ---
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.21.0/tocbot.css">
 
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <style>
   /*
     页面整体布局：左内容 + 右目录
@@ -42,6 +44,8 @@ layout: default
   /* 评论区 */
   .comments {
     margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #e8e8e8; /* 加一条浅色分割线让排版更清晰 */
   }
 
   /* 移动端适配 */
@@ -72,15 +76,17 @@ layout: default
           {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
           {{ page.date | date: date_format }}
         </time>
+
+        <span id="busuanzi_container_page_pv" style="display:none; color: #828282; margin-left: 5px;">
+          | &nbsp; Views: <span id="busuanzi_value_page_pv"></span>
+        </span>
       </p>
     </header>
 
-    <!-- 正文 -->
     <div class="post-content e-content js-toc-content" itemprop="articleBody">
       {{ content }}
     </div>
 
-    <!-- 评论区 -->
     <div class="comments">
       <h2 style="margin-bottom: 20px;">Comments</h2>
 
@@ -103,7 +109,6 @@ layout: default
 
   </article>
 
-  <!-- 右侧目录 -->
   <aside class="post-sidebar">
     <div style="font-weight: bold; margin-bottom: 10px; color: #555;">
       Table of Contents
