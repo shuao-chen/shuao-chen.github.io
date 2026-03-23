@@ -8,17 +8,23 @@
   {%- feed_meta -%}
 
   <style>
+    /* 
+      隐藏 LaTeX 源码文本：
+      不能用 display:none，否则复制时通常不会被选中
+    */
     .mjx-copytext {
       position: absolute !important;
       width: 1px !important;
       height: 1px !important;
-      padding: 0 !important;
       margin: -1px !important;
+      padding: 0 !important;
       overflow: hidden !important;
       clip: rect(0, 0, 0, 0) !important;
       white-space: nowrap !important;
       border: 0 !important;
     }
+
+    /* 让隐藏文本的绝对定位有参考容器 */
     mjx-container {
       position: relative !important;
     }
@@ -32,30 +38,41 @@
         processEscapes: true,
         tags: 'ams'
       },
+
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+
+        /*
+          在 MathJax 渲染完成后，
+          给每个公式节点追加一份隐藏的 LaTeX 源码
+        */
         renderActions: {
-          addCopyText: [155,
-            (doc) => {
-              for (const math of doc.math) {
-                MathJax.config.addCopyText(math, doc);
-              }
-            },
-            (math, doc) => {
+          addCopyText: [155, (doc) => {
+            for (const math of doc.math) {
               MathJax.config.addCopyText(math, doc);
             }
-          ]
+          }]
         }
       },
+
+      /*
+        把原始公式源码追加到公式 DOM 中。
+        例如：$a+b$ 或 $$a+b$$
+      */
       addCopyText(math, doc) {
         const adaptor = doc.adaptor;
-        // 关键修复：使用标准的 HTML 属性名 'class'，这样上方的 CSS 才能精准捕获并隐藏它
-        const text = adaptor.node('span', {'class': 'mjx-copytext', 'aria-hidden': true}, [
-          adaptor.text(math.start.delim + math.math + math.end.delim)
-        ]);
-        adaptor.append(math.typesetRoot, text);
+        const latexSource = math.start.delim + math.math + math.end.delim;
+
+        const hiddenText = adaptor.node(
+          'span',
+          { class: 'mjx-copytext', 'aria-hidden': 'true' },
+          [adaptor.text(latexSource)]
+        );
+
+        adaptor.append(math.typesetRoot, hiddenText);
       }
     };
   </script>
+
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
