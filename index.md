@@ -1,5 +1,3 @@
-# Shuao Chen
-
 PhD Candidate in Information Theory  
 
 ---
