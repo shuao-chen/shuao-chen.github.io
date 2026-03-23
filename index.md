@@ -14,3 +14,7 @@ PhD Candidate in Information Theory
 ## About
 
 This site contains my research notes and paper readings in information theory and wireless communications.
+
+## Contact
+
+Email: [shuaochen99@gmail.com](mailto:shuaochen99@gmail.com)
