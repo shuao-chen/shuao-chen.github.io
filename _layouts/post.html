@@ -8,8 +8,9 @@ layout: default
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 2%;
   }
-  
+
   /* 左侧文章主体区域 */
   .post-main-content {
     width: 75%;
@@ -18,27 +19,42 @@ layout: default
   /* 右侧悬浮目录区域 */
   .post-sidebar {
     width: 22%;
-    /* 使用 sticky 实现悬浮效果，距离顶部 80px */
     position: sticky;
-    top: 80px; 
-    /* 限制最大高度并允许目录内部滚动 */
+    top: 80px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
   }
 
-  /* 调整 Tocbot 默认样式使其更贴合博客 */
-  .toc-list { margin-top: 10px !important; font-size: 0.9em; }
-  .is-active-link { font-weight: bold; color: #2a7ae2; }
+  /* Tocbot 样式 */
+  .toc-list {
+    margin-top: 10px !important;
+    font-size: 0.9em;
+  }
 
-  /* 移动端适配：屏幕小于 800px 时隐藏右侧目录，文章占满全宽 */
+  .is-active-link {
+    font-weight: bold;
+    color: #2a7ae2;
+  }
+
+  /* 评论区 */
+  .comments {
+    margin-top: 40px;
+  }
+
+  /* 移动端适配 */
   @media screen and (max-width: 800px) {
-    .post-main-content { width: 100%; }
-    .post-sidebar { display: none; }
+    .post-main-content {
+      width: 100%;
+    }
+
+    .post-sidebar {
+      display: none;
+    }
   }
 </style>
 
 <div class="post-layout-container">
-  
+
   <article class="post h-entry post-main-content" itemscope itemtype="http://schema.org/BlogPosting">
     <header class="post-header">
       <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
@@ -53,6 +69,24 @@ layout: default
     <div class="post-content e-content js-toc-content" itemprop="articleBody">
       {{ content }}
     </div>
+
+    <div class="comments">
+      <script src="https://giscus.app/client.js"
+              data-repo="shuao-chen/shuao-chen.github.io"
+              data-repo-id="R_kgDORuLgIA"
+              data-category="Announcements"
+              data-category-id="DIC_kwDORuLgIM4C5Ez_"
+              data-mapping="pathname"
+              data-strict="0"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="bottom"
+              data-theme="preferred_color_scheme"
+              data-lang="zh-CN"
+              crossorigin="anonymous"
+              async>
+      </script>
+    </div>
   </article>
 
   <aside class="post-sidebar">
@@ -66,18 +100,12 @@ layout: default
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     tocbot.init({
-      // 目录挂载的 DOM 节点
       tocSelector: '.js-toc',
-      // 需要提取标题的文章容器
       contentSelector: '.js-toc-content',
-      // 需要抓取的标题级别
       headingSelector: 'h1, h2, h3, h4',
-      // 平滑滚动
       scrollSmooth: true,
-      // 滚动偏移量（如果网站有固定的顶部导航栏，这里需要根据导航栏高度调整）
       scrollSmoothOffset: -80,
       headingsOffset: 80,
-      // 是否在目录中折叠子层级
       collapseDepth: 3
     });
   });
