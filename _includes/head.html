@@ -8,9 +8,9 @@
   {%- feed_meta -%}
 
   <style>
-    /* 
+    /*
       隐藏 LaTeX 源码文本：
-      不能用 display:none，否则复制时通常不会被选中
+      不能用 display: none，否则复制时通常不会被选中
     */
     .mjx-copytext {
       position: absolute !important;
@@ -65,7 +65,10 @@
 
         const hiddenText = adaptor.node(
           'span',
-          { class: 'mjx-copytext', 'aria-hidden': 'true' },
+          {
+            class: 'mjx-copytext',
+            'aria-hidden': 'true'
+          },
           [adaptor.text(latexSource)]
         );
 
