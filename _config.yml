@@ -2,3 +2,6 @@ title: Shuao Chen
 description: Information Theory Notes
 theme: minima
 markdown: kramdown
+
+include:
+  - _includes
