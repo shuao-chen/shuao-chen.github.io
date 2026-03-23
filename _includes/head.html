@@ -9,16 +9,15 @@
 
   <style>
     .mjx-copytext {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      clip-path: inset(50%);
-      border: 0;
-      white-space: nowrap;
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
     }
     mjx-container {
       position: relative !important;
@@ -35,7 +34,6 @@
       },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-        // 2. 渲染动作：只负责把包裹在 span 里的源码插入到 DOM 中
         renderActions: {
           addCopyText: [155,
             (doc) => {
@@ -51,8 +49,8 @@
       },
       addCopyText(math, doc) {
         const adaptor = doc.adaptor;
-        // 创建一个带有 .mjx-copytext 类的 span 标签
-        const text = adaptor.node('span', {className: 'mjx-copytext', 'aria-hidden': true}, [
+        // 关键修复：使用标准的 HTML 属性名 'class'，这样上方的 CSS 才能精准捕获并隐藏它
+        const text = adaptor.node('span', {'class': 'mjx-copytext', 'aria-hidden': true}, [
           adaptor.text(math.start.delim + math.math + math.end.delim)
         ]);
         adaptor.append(math.typesetRoot, text);
