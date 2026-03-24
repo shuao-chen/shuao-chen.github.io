@@ -7,31 +7,35 @@ layout: default
 
 <style>
   /*
-    页面整体布局：最左侧目录 + 中间留白 + 右侧正文
+    整体容器不再使用 flex。
+    目录单独固定在最左侧，正文自己居中。
   */
   .post-layout-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 180px;
+    display: block;
   }
 
-  /* 左侧目录 */
+  /*
+    左侧目录：
+    固定在页面最左边，不参与正文布局
+  */
   .post-sidebar {
-    width: 480px;
-    min-width: 480px;
-    position: sticky;
-    top: 80px;
-    max-height: calc(100vh - 100px);
+    position: fixed;
+    left: 20px;
+    top: 90px;
+    width: 420px;
+    max-height: calc(100vh - 110px);
     overflow-y: auto;
-    flex-shrink: 0;
+    box-sizing: border-box;
   }
 
-  /* 右侧正文 */
+  /*
+    正文区域：
+    始终居中，且给一个较宽的最大宽度
+  */
   .post-main-content {
-    width: min(1200px, 100%);
+    width: min(1100px, calc(100vw - 120px));
+    margin: 0 auto;
     min-width: 0;
-    flex: 1;
   }
 
   /* 目录标题 */
@@ -66,18 +70,24 @@ layout: default
     border-top: 1px solid #e8e8e8;
   }
 
-  /* 移动端适配 */
-  @media screen and (max-width: 1100px) {
-    .post-layout-container {
-      display: block;
-    }
-
+  /*
+    当屏幕不够宽时，隐藏左侧目录，正文恢复正常全宽居中
+  */
+  @media screen and (max-width: 1700px) {
     .post-sidebar {
       display: none;
     }
 
     .post-main-content {
-      width: 100%;
+      width: min(1100px, calc(100vw - 80px));
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    .post-main-content {
+      width: calc(100vw - 40px);
+      margin: 0 auto;
     }
   }
 </style>
