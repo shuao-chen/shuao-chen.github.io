@@ -7,8 +7,22 @@ layout: default
 
 <style>
   /*
-    整体容器不再使用 flex。
-    目录单独固定在最左侧，正文自己居中。
+    参数说明：
+    --toc-left-gap: 目录距离屏幕左边的空隙
+    --toc-width: 目录宽度
+    --toc-content-gap: 目录和正文之间的空隙
+    --content-right-gap: 正文距离屏幕右边的空隙
+  */
+  :root {
+    --toc-left-gap: 24px;
+    --toc-width: 480px;
+    --toc-content-gap: 72px;
+    --content-right-gap: 48px;
+    --toc-top: 90px;
+  }
+
+  /*
+    外层容器不参与横向布局
   */
   .post-layout-container {
     display: block;
@@ -16,13 +30,13 @@ layout: default
 
   /*
     左侧目录：
-    固定在页面最左边，不参与正文布局
+    永远固定在左边
   */
   .post-sidebar {
     position: fixed;
-    left: 20px;
-    top: 90px;
-    width: 420px;
+    left: var(--toc-left-gap);
+    top: var(--toc-top);
+    width: var(--toc-width);
     max-height: calc(100vh - 110px);
     overflow-y: auto;
     box-sizing: border-box;
@@ -30,11 +44,12 @@ layout: default
 
   /*
     正文区域：
-    始终居中，且给一个较宽的最大宽度
+    从“目录 + 目录右侧空隙”之后开始，
+    一直到“屏幕右边留一点距离”为止
   */
   .post-main-content {
-    width: min(1100px, calc(100vw - 120px));
-    margin: 0 auto;
+    margin-left: calc(var(--toc-left-gap) + var(--toc-width) + var(--toc-content-gap));
+    margin-right: var(--content-right-gap);
     min-width: 0;
   }
 
@@ -71,23 +86,32 @@ layout: default
   }
 
   /*
-    当屏幕不够宽时，隐藏左侧目录，正文恢复正常全宽居中
+    极窄屏幕下仍然保留目录会严重挤压正文。
+    这里不隐藏目录，只是自动缩小目录宽度和间距。
   */
-  @media screen and (max-width: 1700px) {
-    .post-sidebar {
-      display: none;
-    }
-
-    .post-main-content {
-      width: min(1100px, calc(100vw - 80px));
-      margin: 0 auto;
+  @media screen and (max-width: 1600px) {
+    :root {
+      --toc-width: 420px;
+      --toc-content-gap: 56px;
+      --content-right-gap: 36px;
     }
   }
 
-  @media screen and (max-width: 1100px) {
-    .post-main-content {
-      width: calc(100vw - 40px);
-      margin: 0 auto;
+  @media screen and (max-width: 1400px) {
+    :root {
+      --toc-width: 360px;
+      --toc-content-gap: 40px;
+      --content-right-gap: 28px;
+      --toc-left-gap: 16px;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    :root {
+      --toc-width: 300px;
+      --toc-content-gap: 28px;
+      --content-right-gap: 20px;
+      --toc-left-gap: 12px;
     }
   }
 </style>
