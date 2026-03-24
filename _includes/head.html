@@ -32,11 +32,30 @@
 
   <script>
     window.MathJax = {
+      /*
+        显式加载 ams 扩展，确保 \text、aligned、cases 等可用
+      */
+      loader: {
+        load: ['[tex]/ams']
+      },
+
       tex: {
+        /*
+          同时支持：
+          1. $...$
+          2. \(...\)
+          3. $$...$$
+          4. \[...\]
+        */
         inlineMath: [['$', '$'], ['\\(', '\\)']],
         displayMath: [['$$', '$$'], ['\\[', '\\]']],
         processEscapes: true,
-        tags: 'ams'
+        tags: 'ams',
+
+        /*
+          把 ams 包加入可用包列表
+        */
+        packages: { '[+]': ['ams'] }
       },
 
       options: {
@@ -57,7 +76,7 @@
 
       /*
         把原始公式源码追加到公式 DOM 中。
-        例如：$a+b$ 或 $$a+b$$
+        例如：$a+b$、\(...\)、$$a+b$$、\[a+b\]
       */
       addCopyText(math, doc) {
         const adaptor = doc.adaptor;
