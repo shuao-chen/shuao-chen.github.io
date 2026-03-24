@@ -8,10 +8,10 @@ layout: default
 <style>
   /*
     参数说明：
-    --toc-left-gap: 目录距离屏幕左边的空隙
+    --toc-left-gap: 目录距屏幕左侧的间距
     --toc-width: 目录宽度
-    --toc-content-gap: 目录和正文之间的空隙
-    --content-right-gap: 正文距离屏幕右边的空隙
+    --toc-content-gap: 目录与正文之间的间距
+    --content-right-gap: 正文距屏幕右侧的间距
   */
   :root {
     --toc-left-gap: 24px;
@@ -22,8 +22,8 @@ layout: default
   }
 
   /*
-    放宽 default layout 里的外层容器，
-    否则正文会被主题默认宽度限制住
+    放宽 default layout 中外层容器的宽度限制，
+    否则正文区域会受到主题默认宽度的约束
   */
   .wrapper {
     max-width: none !important;
@@ -34,7 +34,7 @@ layout: default
   }
 
   /*
-    外层容器不参与横向布局
+    外层容器不参与横向布局计算
   */
   .post-layout-container {
     display: block;
@@ -42,7 +42,7 @@ layout: default
 
   /*
     左侧目录：
-    永远固定在左边
+    在桌面端固定显示于左侧
   */
   .post-sidebar {
     position: fixed;
@@ -56,8 +56,8 @@ layout: default
 
   /*
     正文区域：
-    从“目录 + 目录右侧空隙”之后开始，
-    一直到“屏幕右边留一点距离”为止
+    起始位置位于“目录宽度 + 目录与正文间距”之后，
+    右侧保留一定留白
   */
   .post-main-content {
     margin-left: calc(var(--toc-left-gap) + var(--toc-width) + var(--toc-content-gap));
@@ -68,7 +68,7 @@ layout: default
     box-sizing: border-box;
   }
 
-  /* 目录标题 */
+  /* 目录标题样式 */
   .toc-title {
     font-weight: bold;
     margin-bottom: 12px;
@@ -76,7 +76,7 @@ layout: default
     font-size: 1.08em;
   }
 
-  /* 目录样式 */
+  /* 目录列表样式 */
   .toc-list {
     margin-top: 10px !important;
     font-size: 0.98em;
@@ -93,7 +93,7 @@ layout: default
     color: #2a7ae2;
   }
 
-  /* 评论区 */
+  /* 评论区样式 */
   .comments {
     margin-top: 50px;
     padding-top: 30px;
@@ -101,8 +101,8 @@ layout: default
   }
 
   /*
-    屏幕变窄时，适当缩小目录和间距，
-    但目录仍然保留
+    当屏幕宽度减小时，适当缩小目录宽度与间距，
+    但在桌面和平板宽度下仍保留目录
   */
   @media screen and (max-width: 1600px) {
     :root {
@@ -127,6 +127,24 @@ layout: default
       --toc-content-gap: 24px;
       --content-right-gap: 20px;
       --toc-left-gap: 12px;
+    }
+  }
+
+  /*
+    移动端布局：
+    目录隐藏，正文恢复为单栏显示，
+    左右各保留 16px 阅读边距
+  */
+  @media screen and (max-width: 900px) {
+    .post-sidebar {
+      display: none;
+    }
+
+    .post-main-content {
+      margin-left: 16px;
+      margin-right: 16px;
+      width: auto;
+      max-width: none;
     }
   }
 </style>
@@ -193,8 +211,8 @@ layout: default
   document.addEventListener("DOMContentLoaded", function() {
 
     /*
-      初始化目录生成（tocbot）
-      从正文中提取 h1-h4 自动生成目录
+      初始化目录生成组件（tocbot），
+      从正文区域中提取 h1 至 h4 标题并生成目录
     */
     tocbot.init({
       tocSelector: '.js-toc',
