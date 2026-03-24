@@ -8,4 +8,5 @@ include:
 
 kramdown:
   math_engine: mathjax
-  parse_block_html: true
+  input: GFM
+  hard_wrap: false
