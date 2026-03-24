@@ -7,29 +7,31 @@ layout: default
 
 <style>
   /*
-    页面整体布局：左目录 + 右正文
+    页面整体布局：最左侧目录 + 中间留白 + 右侧正文
   */
   .post-layout-container {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
-    gap: 3%;
+    justify-content: flex-start;
+    gap: 80px;
   }
 
-  /* 左侧悬浮目录 */
+  /* 左侧目录 */
   .post-sidebar {
-    width: 28%;
+    width: 320px;
+    min-width: 320px;
     position: sticky;
     top: 80px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
-    padding-right: 10px;
+    flex-shrink: 0;
   }
 
-  /* 右侧文章主体 */
+  /* 右侧正文 */
   .post-main-content {
-    width: 69%;
+    width: min(760px, 100%);
     min-width: 0;
+    flex: 1;
   }
 
   /* 目录标题 */
@@ -37,14 +39,14 @@ layout: default
     font-weight: bold;
     margin-bottom: 12px;
     color: #555;
-    font-size: 1.05em;
+    font-size: 1.08em;
   }
 
   /* 目录样式 */
   .toc-list {
     margin-top: 10px !important;
-    font-size: 0.95em;
-    line-height: 1.6;
+    font-size: 0.98em;
+    line-height: 1.7;
     padding-left: 1.2em;
   }
 
@@ -65,7 +67,7 @@ layout: default
   }
 
   /* 移动端适配 */
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1100px) {
     .post-layout-container {
       display: block;
     }
