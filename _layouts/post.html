@@ -46,37 +46,60 @@ layout: default
   }
 
   /* ===== 目录样式 ===== */
-  .toc-title {
-    font-weight: bold;
-    margin-bottom: 12px;
+
+  /* 去掉默认编号 */
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: toc-counter;
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+
+  /* 每一项 */
+  .toc-list-item {
+    counter-increment: toc-counter;
+    margin-bottom: 6px;
+    position: relative;
+    padding-left: 2.0em;
+  }
+
+  /* 自定义编号 */
+  .toc-list-item::before {
+    content: counter(toc-counter) ". ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.2em;
+    text-align: right;
     color: #555;
   }
 
-  .toc-list {
-    font-size: 0.95em;
-    line-height: 1.6;
-    padding-left: 2.2em;
-    margin: 0;
-  }
-
+  /* 子目录 */
   .toc-list .toc-list {
-    padding-left: 1.8em;
+    margin-top: 4px;
+    margin-left: 1.2em;
+    counter-reset: toc-counter;
   }
 
-  .toc-list-item {
-    margin-bottom: 4px;
-  }
-
+  /* 目录文字 */
   .toc-link {
-    display: inline-block;
-    width: 100%;
     text-decoration: none;
     word-break: break-word;
   }
 
+  /* 当前高亮 */
   .is-active-link {
     font-weight: bold;
     color: #2a7ae2;
+  }
+
+  /* 标题 */
+  .toc-title {
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #555;
   }
 
   /* ===== 文章信息 ===== */
@@ -206,7 +229,7 @@ layout: default
       tocSelector: '.js-toc',
       contentSelector: '.js-toc-content',
       headingSelector: 'h1, h2, h3, h4',
-      orderedList: true, 
+      orderedList: false, 
       scrollSmooth: true,
       headingsOffset: 80
     });
