@@ -1,49 +1,35 @@
 ---
 layout: default
 ---
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.21.0/tocbot.css">
 
+<!-- ===== 第三方资源 ===== -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.21.0/tocbot.css">
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <style>
-  /*
-    参数说明：
-    --toc-left-gap: 目录距屏幕左侧的间距
-    --toc-width: 目录宽度
-    --toc-content-gap: 目录与正文之间的间距
-    --content-right-gap: 正文距屏幕右侧的间距
-  */
+  /* ===== 布局参数 ===== */
   :root {
     --toc-left-gap: 24px;
-    --toc-width: 400px;
-    --toc-content-gap: 48px;
-    --content-right-gap: 48px;
+    --toc-width: 360px;
+    --toc-content-gap: 40px;
+    --content-right-gap: 40px;
     --toc-top: 90px;
   }
 
-  /*
-    放宽 default layout 中外层容器的宽度限制，
-    否则正文区域会受到主题默认宽度的约束
-  */
+  /* 解除主题宽度限制 */
   .wrapper {
     max-width: none !important;
     width: 100% !important;
     margin: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding: 0 !important;
   }
 
-  /*
-    外层容器不参与横向布局计算
-  */
+  /* ===== 布局 ===== */
   .post-layout-container {
     display: block;
   }
 
-  /*
-    左侧目录：
-    在桌面端固定显示于左侧
-  */
+  /* 左侧目录 */
   .post-sidebar {
     position: fixed;
     left: var(--toc-left-gap);
@@ -51,41 +37,41 @@ layout: default
     width: var(--toc-width);
     max-height: calc(100vh - 110px);
     overflow-y: auto;
-    box-sizing: border-box;
   }
 
-  /*
-    正文区域：
-    起始位置位于“目录宽度 + 目录与正文间距”之后，
-    右侧保留一定留白
-  */
+  /* 正文 */
   .post-main-content {
     margin-left: calc(var(--toc-left-gap) + var(--toc-width) + var(--toc-content-gap));
     margin-right: var(--content-right-gap);
-    width: auto;
-    max-width: none;
-    min-width: 0;
-    box-sizing: border-box;
   }
 
-  /* 目录标题样式 */
+  /* ===== 目录样式 ===== */
   .toc-title {
     font-weight: bold;
     margin-bottom: 12px;
     color: #555;
-    font-size: 1.08em;
   }
 
-  /* 目录列表样式 */
   .toc-list {
-    margin-top: 10px !important;
-    font-size: 0.98em;
-    line-height: 1.7;
-    padding-left: 1.2em;
+    font-size: 0.95em;
+    line-height: 1.6;
+    padding-left: 2.2em;
+    margin: 0;
+  }
+
+  .toc-list .toc-list {
+    padding-left: 1.8em;
+  }
+
+  .toc-list-item {
+    margin-bottom: 4px;
   }
 
   .toc-link {
+    display: inline-block;
+    width: 100%;
     text-decoration: none;
+    word-break: break-word;
   }
 
   .is-active-link {
@@ -93,164 +79,106 @@ layout: default
     color: #2a7ae2;
   }
 
-  /*
-    文章扩展元信息样式：
-    用于在日期下方显示分类和标签
-  */
+  /* ===== 文章信息 ===== */
   .post-meta-extended {
     margin-top: 6px;
     font-size: 0.9em;
     color: #828282;
-    line-height: 1.7;
   }
 
-  /*
-    分类样式：
-    分类文字显示为红色，用于和标签区分
-  */
   .post-category {
     color: #d14;
     font-weight: 500;
   }
 
-  /*
-    标签样式：
-    标签文字显示为蓝色，
-    并通过右边距保证多个标签之间有自然空格
-  */
   .post-tag {
     color: #2a7ae2;
   }
 
-  /* 评论区样式 */
+  /* 评论区 */
   .comments {
     margin-top: 50px;
     padding-top: 30px;
     border-top: 1px solid #e8e8e8;
   }
 
-  /*
-    当屏幕宽度减小时，适当缩小目录宽度与间距，
-    但在桌面和平板宽度下仍保留目录
-  */
-  @media screen and (max-width: 1600px) {
+  /* ===== 响应式 ===== */
+  @media (max-width: 1200px) {
     :root {
-      --toc-width: 360px;
-      --toc-content-gap: 40px;
-      --content-right-gap: 36px;
-    }
-  }
-
-  @media screen and (max-width: 1400px) {
-    :root {
-      --toc-width: 320px;
-      --toc-content-gap: 32px;
-      --content-right-gap: 28px;
-      --toc-left-gap: 16px;
-    }
-  }
-
-  @media screen and (max-width: 1200px) {
-    :root {
-      --toc-width: 280px;
+      --toc-width: 260px;
       --toc-content-gap: 24px;
-      --content-right-gap: 20px;
-      --toc-left-gap: 12px;
     }
   }
 
-  /*
-    移动端布局：
-    目录隐藏，正文恢复为单栏显示，
-    左右各保留 16px 阅读边距
-  */
-  @media screen and (max-width: 900px) {
+  @media (max-width: 900px) {
     .post-sidebar {
       display: none;
     }
 
     .post-main-content {
-      margin-left: 16px;
-      margin-right: 16px;
-      width: auto;
-      max-width: none;
+      margin: 0 16px;
     }
   }
 </style>
 
 <div class="post-layout-container">
 
+  <!-- ===== 目录 ===== -->
   <aside class="post-sidebar">
     <div class="toc-title">Table of Contents</div>
     <div class="js-toc"></div>
   </aside>
 
-  <article class="post h-entry post-main-content" itemscope itemtype="http://schema.org/BlogPosting">
+  <!-- ===== 正文 ===== -->
+  <article class="post post-main-content" itemscope itemtype="http://schema.org/BlogPosting">
 
     <header class="post-header">
-      <h1 class="post-title p-name" itemprop="name headline">
+      <h1 class="post-title">
         {{ page.title | escape }}
       </h1>
 
       <p class="post-meta">
-        <time class="dt-published"
-              datetime="{{ page.date | date_to_xmlschema }}"
-              itemprop="datePublished">
-          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-          {{ page.date | date: date_format }}
+        <time datetime="{{ page.date | date_to_xmlschema }}">
+          {{ page.date | date: "%b %-d, %Y" }}
         </time>
 
-        <span id="busuanzi_container_page_pv" style="display:none; color: #828282; margin-left: 5px;">
-          | &nbsp; Views: <span id="busuanzi_value_page_pv"></span>
+        <span id="busuanzi_container_page_pv" style="display:none; margin-left: 5px;">
+          | Views: <span id="busuanzi_value_page_pv"></span>
         </span>
       </p>
 
-      {%- if page.categories or page.tags -%}
-      <!--
-        分类与标签显示区域：
-        当文章 front matter 中存在 categories 或 tags 时，
-        在日期下方显示这些元信息
-      -->
+      {% if page.categories or page.tags %}
       <div class="post-meta-extended">
 
-        {%- if page.categories and page.categories.size > 0 -%}
-        <!--
-          分类显示：
-          逐个输出 page.categories 中的内容，
-          多个分类之间用逗号分隔。
-          这里在冒号后显式保留一个空格。
-        -->
-        <span>
-          Categories: 
-          {% for category in page.categories %}
-            <span class="post-category">{{ category }}</span>{% unless forloop.last %}, {% endunless %}{%- endfor -%}
-        </span>
-        {%- endif -%}
+        {% if page.categories %}
+        <div>
+          Categories:
+          {% for c in page.categories %}
+            <span class="post-category">{{ c }}</span>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </div>
+        {% endif %}
 
-        {%- if page.tags and page.tags.size > 0 -%}
-        <!--
-          标签显示：
-          逐个输出 page.tags 中的内容，
-          每个标签前加 #。
-          标签之间的间距主要由 .post-tag 的 margin-right 控制。
-          这里在冒号后显式保留一个空格。
-        -->
-        <br>
-        <span>
-          Tags: {% for tag in page.tags %}<span class="post-tag">#{{ tag }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}
-        </span>
-        {%- endif -%}
+        {% if page.tags %}
+        <div>
+          Tags:
+          {% for t in page.tags %}
+            <span class="post-tag">#{{ t }}</span>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </div>
+        {% endif %}
 
       </div>
-      {%- endif -%}
+      {% endif %}
     </header>
 
-    <div class="post-content e-content js-toc-content" itemprop="articleBody">
+    <div class="post-content js-toc-content">
       {{ content }}
     </div>
 
+    <!-- 评论 -->
     <div class="comments">
-      <h2 style="margin-bottom: 20px;">Comments</h2>
+      <h2>Comments</h2>
 
       <script src="https://giscus.app/client.js"
               data-repo="shuao-chen/shuao-chen.github.io"
@@ -258,13 +186,9 @@ layout: default
               data-category="Announcements"
               data-category-id="DIC_kwDORuLgIM4C5Ez_"
               data-mapping="pathname"
-              data-strict="0"
               data-reactions-enabled="1"
-              data-emit-metadata="0"
-              data-input-position="bottom"
               data-theme="preferred_color_scheme"
               data-lang="en"
-              crossorigin="anonymous"
               async>
       </script>
     </div>
@@ -273,24 +197,18 @@ layout: default
 
 </div>
 
+<!-- ===== TOC 脚本 ===== -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.21.0/tocbot.min.js"></script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-
-    /*
-      初始化目录生成组件（tocbot），
-      从正文区域中提取 h1 至 h4 标题并生成目录
-    */
+  document.addEventListener("DOMContentLoaded", function () {
     tocbot.init({
       tocSelector: '.js-toc',
       contentSelector: '.js-toc-content',
       headingSelector: 'h1, h2, h3, h4',
+      orderedList: true, 
       scrollSmooth: true,
-      scrollSmoothOffset: -80,
-      headingsOffset: 80,
-      collapseDepth: 3
+      headingsOffset: 80
     });
-
   });
 </script>
