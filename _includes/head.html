@@ -9,9 +9,12 @@
 
   <style>
     /*
-      隐藏 LaTeX 源码文本：
-      不能用 display: none，否则复制时通常不会被选中
+      ===== 可选功能：复制 LaTeX 源码 =====
+      默认关闭（不会影响页面）
+      如需开启，将 JS 中的 ENABLE_COPY_LATEX 设为 true
     */
+
+    /* 隐藏 LaTeX 源码文本（用于复制，不影响显示） */
     .mjx-copytext {
       position: absolute !important;
       width: 1px !important;
@@ -24,16 +27,23 @@
       border: 0 !important;
     }
 
-    /* 让隐藏文本的绝对定位有参考容器 */
+    /* 让隐藏文本有定位参考 */
     mjx-container {
       position: relative !important;
     }
   </style>
 
   <script>
+    /*
+      ===== 开关：是否启用“复制 LaTeX 源码” =====
+      false = 关闭（推荐默认）
+      true  = 开启
+    */
+    const ENABLE_COPY_LATEX = false;
+
     window.MathJax = {
       /*
-        显式加载 ams 扩展，确保 \text、aligned、cases 等可用
+        显式加载 ams 扩展
       */
       loader: {
         load: ['[tex]/ams']
@@ -41,11 +51,8 @@
 
       tex: {
         /*
-          同时支持：
-          1. $...$
-          2. \(...\)
-          3. $$...$$
-          4. \[...\]
+          支持：
+          $...$, \(...\), $$...$$, \[...\]
         */
         inlineMath: [['$', '$'], ['\\(', '\\)']],
         displayMath: [['$$', '$$'], ['\\[', '\\]']],
@@ -53,7 +60,7 @@
         tags: 'ams',
 
         /*
-          把 ams 包加入可用包列表
+          启用 ams 包
         */
         packages: { '[+]': ['ams'] }
       },
@@ -62,23 +69,24 @@
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
 
         /*
-          在 MathJax 渲染完成后，
-          给每个公式节点追加一份隐藏的 LaTeX 源码
+          根据开关决定是否添加复制功能
         */
-        renderActions: {
+        renderActions: ENABLE_COPY_LATEX ? {
           addCopyText: [155, (doc) => {
             for (const math of doc.math) {
               MathJax.config.addCopyText(math, doc);
             }
           }]
-        }
+        } : {}
       },
 
       /*
-        把原始公式源码追加到公式 DOM 中。
-        例如：$a+b$、\(...\)、$$a+b$$、\[a+b\]
+        ===== 复制 LaTeX 源码函数（可选功能）=====
+        仅在 ENABLE_COPY_LATEX = true 时生效
       */
       addCopyText(math, doc) {
+        if (!ENABLE_COPY_LATEX) return;
+
         const adaptor = doc.adaptor;
         const latexSource = math.start.delim + math.math + math.end.delim;
 
