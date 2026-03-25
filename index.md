@@ -26,9 +26,34 @@ This website collects my research notes, paper readings, and technical writeups,
 
 <ul>
   {% for post in site.posts limit:5 %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <small> — {{ post.date | date: "%b %-d, %Y" }}</small>
+    <li style="margin-bottom: 10px;">
+
+      <!-- 标题 + 日期 -->
+      <div>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <small> — {{ post.date | date: "%Y-%m-%d" }}</small>
+      </div>
+
+      <!-- 分类 -->
+      {% if post.categories and post.categories.size > 0 %}
+      <div class="post-meta-extended">
+        Categories:
+        {% for c in post.categories %}
+          <span class="post-category">{{ c }}</span>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- 标签 -->
+      {% if post.tags and post.tags.size > 0 %}
+      <div class="post-meta-extended">
+        Tags:
+        {% for t in post.tags %}
+          <span class="post-tag">#{{ t }}</span>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </div>
+      {% endif %}
+
     </li>
   {% endfor %}
 </ul>
