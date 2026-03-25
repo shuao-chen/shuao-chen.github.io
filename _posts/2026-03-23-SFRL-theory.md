@@ -864,10 +864,4 @@ while preserving $P_{XY}$ and $H(Y|Z')=H(Y|Z)$. This completes the proof.
 ### References
 
 This note is based on:
-- [Strong Functional Representation Lemma and Applications to Coding Theorems](https://ieeexplore.ieee.org/abstract/document/8438492)
-
-### wifdn
-
-### djgn
-
-### fjjgn
+- Cheuk Ting Li and Abbas El Gamal, “Strong Functional Representation Lemma and Applications to Coding Theorems,” *IEEE Transactions on Information Theory*, vol. 64, no. 11, pp. 6967–6978, Nov. 2018. [IEEE Xplore](https://ieeexplore.ieee.org/abstract/document/8438492)
