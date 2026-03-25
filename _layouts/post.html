@@ -106,19 +106,21 @@ layout: default
 
   /*
     分类样式：
-    使用蓝色突出显示，和整体主题风格保持一致
+    分类文字显示为红色，用于和标签区分
   */
   .post-category {
-    color: #2a7ae2;
+    color: #d14;
     font-weight: 500;
   }
 
   /*
     标签样式：
-    使用较浅灰色，与分类形成区分
+    标签文字显示为蓝色，
+    并通过右边距保证多个标签之间有自然空格
   */
   .post-tag {
-    color: #666;
+    color: #2a7ae2;
+    margin-right: 6px;
   }
 
   /* 评论区样式 */
@@ -216,10 +218,11 @@ layout: default
         <!--
           分类显示：
           逐个输出 page.categories 中的内容，
-          多个分类之间用逗号分隔
+          多个分类之间用逗号分隔。
+          这里在冒号后显式保留一个空格。
         -->
         <span>
-          Categories:
+          Categories: 
           {%- for category in page.categories -%}
             <span class="post-category">{{ category }}</span>{% unless forloop.last %}, {% endunless %}
           {%- endfor -%}
@@ -230,13 +233,15 @@ layout: default
         <!--
           标签显示：
           逐个输出 page.tags 中的内容，
-          每个标签前加 #，标签之间用空格分隔
+          每个标签前加 #。
+          标签之间的间距主要由 .post-tag 的 margin-right 控制。
+          这里在冒号后显式保留一个空格。
         -->
         <br>
         <span>
-          Tags:
+          Tags: 
           {%- for tag in page.tags -%}
-            <span class="post-tag">#{{ tag }}</span>{% unless forloop.last %} {% endunless %}
+            <span class="post-tag">#{{ tag }}</span>
           {%- endfor -%}
         </span>
         {%- endif -%}
