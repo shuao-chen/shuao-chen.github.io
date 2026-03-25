@@ -1,5 +1,5 @@
 ---
-title: Home
+layout: default
 ---
 
 # Shuao Chen
