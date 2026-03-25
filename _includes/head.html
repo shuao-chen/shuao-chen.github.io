@@ -14,6 +14,9 @@
       如需开启，将 JS 中的 ENABLE_COPY_LATEX 设为 true
     */
 
+    /*
+      隐藏的 LaTeX 源码文本（用于复制，不影响页面显示）
+    */
     .mjx-copytext {
       position: absolute !important;
       width: 1px !important;
@@ -26,26 +29,44 @@
       border: 0 !important;
     }
 
+    /*
+      使 MathJax 容器支持插入隐藏文本
+    */
     mjx-container {
       position: relative !important;
     }
 
     /*
-      ===== 分类 & 标签样式 =====
+      ===== 分类 & 标签样式（与 post.html 保持一致） =====
+      用于文章头部 meta 信息展示
+    */
+
+    /*
+      分类样式：
+      使用红色突出显示
+    */
+    .post-category {
+      color: #d14;
+      font-weight: 500;
+    }
+
+    /*
+      标签样式：
+      使用蓝色，并设置右边距保证间距
+    */
+    .post-tag {
+      color: #2a7ae2;
+      margin-right: 6px;
+    }
+
+    /*
+      扩展 meta 信息整体样式
     */
     .post-meta-extended {
       margin-top: 6px;
       font-size: 0.9em;
       color: #828282;
-    }
-
-    .post-category {
-      color: #2a7ae2;
-      font-weight: 500;
-    }
-
-    .post-tag {
-      color: #666;
+      line-height: 1.7;
     }
   </style>
 
@@ -58,6 +79,7 @@
     const ENABLE_COPY_LATEX = false;
 
     window.MathJax = {
+
       /*
         加载 ams 扩展（支持 aligned、cases、\text 等）
       */
@@ -76,6 +98,10 @@
         inlineMath: [['$', '$'], ['\\(', '\\)']],
         displayMath: [['$$', '$$'], ['\\[', '\\]']],
         processEscapes: true,
+
+        /*
+          使用 AMS 自动编号
+        */
         tags: 'ams',
 
         packages: { '[+]': ['ams'] }
@@ -83,7 +109,7 @@
 
       options: {
         /*
-          避免在这些标签中解析数学
+          避免在这些标签中解析数学公式
         */
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
 
@@ -100,14 +126,22 @@
       },
 
       /*
-        ===== 可选：复制 LaTeX 源码 =====
+        ===== 实现“复制 LaTeX 源码” =====
+        在每个公式节点中插入隐藏的 LaTeX 文本
       */
       addCopyText(math, doc) {
         if (!ENABLE_COPY_LATEX) return;
 
         const adaptor = doc.adaptor;
+
+        /*
+          获取完整 LaTeX（包含定界符）
+        */
         const latexSource = math.start.delim + math.math + math.end.delim;
 
+        /*
+          创建隐藏节点
+        */
         const hiddenText = adaptor.node(
           'span',
           {
@@ -117,10 +151,14 @@
           [adaptor.text(latexSource)]
         );
 
+        /*
+          插入到公式 DOM 中
+        */
         adaptor.append(math.typesetRoot, hiddenText);
       }
     };
   </script>
 
+  <!-- MathJax 主脚本 -->
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
