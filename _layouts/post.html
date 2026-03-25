@@ -93,6 +93,34 @@ layout: default
     color: #2a7ae2;
   }
 
+  /*
+    文章扩展元信息样式：
+    用于在日期下方显示分类和标签
+  */
+  .post-meta-extended {
+    margin-top: 6px;
+    font-size: 0.9em;
+    color: #828282;
+    line-height: 1.7;
+  }
+
+  /*
+    分类样式：
+    使用蓝色突出显示，和整体主题风格保持一致
+  */
+  .post-category {
+    color: #2a7ae2;
+    font-weight: 500;
+  }
+
+  /*
+    标签样式：
+    使用较浅灰色，与分类形成区分
+  */
+  .post-tag {
+    color: #666;
+  }
+
   /* 评论区样式 */
   .comments {
     margin-top: 50px;
@@ -175,6 +203,46 @@ layout: default
           | &nbsp; Views: <span id="busuanzi_value_page_pv"></span>
         </span>
       </p>
+
+      {%- if page.categories or page.tags -%}
+      <!--
+        分类与标签显示区域：
+        当文章 front matter 中存在 categories 或 tags 时，
+        在日期下方显示这些元信息
+      -->
+      <div class="post-meta-extended">
+
+        {%- if page.categories and page.categories.size > 0 -%}
+        <!--
+          分类显示：
+          逐个输出 page.categories 中的内容，
+          多个分类之间用逗号分隔
+        -->
+        <span>
+          Categories:
+          {%- for category in page.categories -%}
+            <span class="post-category">{{ category }}</span>{% unless forloop.last %}, {% endunless %}
+          {%- endfor -%}
+        </span>
+        {%- endif -%}
+
+        {%- if page.tags and page.tags.size > 0 -%}
+        <!--
+          标签显示：
+          逐个输出 page.tags 中的内容，
+          每个标签前加 #，标签之间用空格分隔
+        -->
+        <br>
+        <span>
+          Tags:
+          {%- for tag in page.tags -%}
+            <span class="post-tag">#{{ tag }}</span>{% unless forloop.last %} {% endunless %}
+          {%- endfor -%}
+        </span>
+        {%- endif -%}
+
+      </div>
+      {%- endif -%}
     </header>
 
     <div class="post-content e-content js-toc-content" itemprop="articleBody">
