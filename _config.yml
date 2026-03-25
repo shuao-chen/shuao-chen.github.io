@@ -1,12 +1,19 @@
 title: Shuao Chen
 description: Information Theory Notes
+
+url: "https://shuao-chen.github.io"
+baseurl: ""
+
 theme: minima
 markdown: kramdown
 
-include:
-  - _includes
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+permalink: /:title/
 
 kramdown:
-  math_engine: mathjax
   input: GFM
   hard_wrap: false
+  math_engine: mathjax
