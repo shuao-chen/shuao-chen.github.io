@@ -736,11 +736,7 @@ We now give a bound on the negative part of the log-likelihood ratio.
 </em>
 
 **Proof.**
-Let $L(y):=\frac{dP_{Y|X}}{dP_Y}(y|x).$ Then
-$$\begin{align}
--\min\{\log L(Y),0\} = (-\log L(Y))\,\mathbf 1\{L(Y)<1\}.
-\end{align}$$
-
+Let $L(y):=\frac{dP_{Y|X}}{dP_Y}(y|x).$ Then $-\min\{\log L(Y),0\} = (-\log L(Y))\,\mathbf 1\{L(Y)<1\}.$
 Thus,
 $$\begin{align}
 -\mathbb E
