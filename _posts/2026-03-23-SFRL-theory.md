@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Strong Functional Representation Lemma (SFRL) Notes"
+title: "Strong Functional Representation Lemma Notes"
 date: 2026-03-23
 categories: [theory]
 tags: [information-theory, SFRL, functional-representation]
 published: true
 ---
 
-### Strong Functional Representation Lemma (SFRL)
+### Strong Functional Representation Lemma
 
 In information theory, a fundamental problem is how to characterize the correlation structure between $(X,Y)$ using a random variable $Z$ that is independent of the input $X$.
 In other words, whether $Y$ can be represented as a deterministic function of $X$ and some independent randomness, while controlling the information redundancy introduced by this randomness.
