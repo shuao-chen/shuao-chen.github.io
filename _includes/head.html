@@ -14,7 +14,6 @@
       如需开启，将 JS 中的 ENABLE_COPY_LATEX 设为 true
     */
 
-    /* 隐藏 LaTeX 源码文本（用于复制，不影响显示） */
     .mjx-copytext {
       position: absolute !important;
       width: 1px !important;
@@ -27,23 +26,40 @@
       border: 0 !important;
     }
 
-    /* 让隐藏文本有定位参考 */
     mjx-container {
       position: relative !important;
+    }
+
+    /*
+      ===== 分类 & 标签样式 =====
+    */
+    .post-meta-extended {
+      margin-top: 6px;
+      font-size: 0.9em;
+      color: #828282;
+    }
+
+    .post-category {
+      color: #2a7ae2;
+      font-weight: 500;
+    }
+
+    .post-tag {
+      color: #666;
     }
   </style>
 
   <script>
     /*
       ===== 开关：是否启用“复制 LaTeX 源码” =====
-      false = 关闭（推荐默认）
+      false = 关闭
       true  = 开启
     */
     const ENABLE_COPY_LATEX = false;
 
     window.MathJax = {
       /*
-        显式加载 ams 扩展
+        加载 ams 扩展（支持 aligned、cases、\text 等）
       */
       loader: {
         load: ['[tex]/ams']
@@ -52,24 +68,27 @@
       tex: {
         /*
           支持：
-          $...$, \(...\), $$...$$, \[...\]
+          $...$
+          \(...\)
+          $$...$$
+          \[...\]
         */
         inlineMath: [['$', '$'], ['\\(', '\\)']],
         displayMath: [['$$', '$$'], ['\\[', '\\]']],
         processEscapes: true,
         tags: 'ams',
 
-        /*
-          启用 ams 包
-        */
         packages: { '[+]': ['ams'] }
       },
 
       options: {
+        /*
+          避免在这些标签中解析数学
+        */
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
 
         /*
-          根据开关决定是否添加复制功能
+          根据开关决定是否启用复制功能
         */
         renderActions: ENABLE_COPY_LATEX ? {
           addCopyText: [155, (doc) => {
@@ -81,8 +100,7 @@
       },
 
       /*
-        ===== 复制 LaTeX 源码函数（可选功能）=====
-        仅在 ENABLE_COPY_LATEX = true 时生效
+        ===== 可选：复制 LaTeX 源码 =====
       */
       addCopyText(math, doc) {
         if (!ENABLE_COPY_LATEX) return;
