@@ -22,6 +22,17 @@ This website collects my research notes, paper readings, and technical writeups,
 - CSI Feedback
 - Massive MIMO
 
+## Recent Posts
+
+<ul>
+  {% for post in site.posts limit:5 %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <small> — {{ post.date | date: "%b %-d, %Y" }}</small>
+    </li>
+  {% endfor %}
+</ul>
+
 ## Contact
 
 Email: [shuaochen99@gmail.com](mailto:shuaochen99@gmail.com)
