@@ -1,3 +1,7 @@
+---
+title: Home
+---
+
 # Shuao Chen
 
 I am a PhD candidate at Shanghai Jiao Tong University.  
