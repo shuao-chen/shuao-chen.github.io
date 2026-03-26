@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Unified Formulation of Probability Integral Transform and Inverse Samplingg"
+title: "Probability Integral Transform"
 date: 2026-03-26
 categories: [theory]
 tags: [probability, inverse-transform, PIT, measure-theory]
@@ -33,15 +33,16 @@ F_X^{-1}(u)\le x \iff u\le F_X(x).
 \end{align}
 $$
 
-Proof. If $F_X^{-1}(u)\le x$, then by the monotonicity of $F_X$,
+**Proof.** 
+If $F_X^{-1}(u)\le x$, then by the monotonicity of $F_X$,
 $$
 \begin{align}
 F_X(F_X^{-1}(u))\le F_X(x),
 \end{align}
 $$
 and by the definition of the generalized inverse, $F_X(F_X^{-1}(u))\ge u$, hence $u\le F_X(x)$.
-
 Conversely, if $u\le F_X(x)$, then $x$ belongs to the set $\{t:F_X(t)\ge u\}$, and thus its infimum satisfies $F_X^{-1}(u)\le x$.
+$\blacksquare$
 
 Taking the negation of the above equivalence yields
 $$
@@ -73,7 +74,8 @@ Z\sim F_X.
 \end{align}
 $$
 
-Proof. For any $z\in\mathbb{R}$,
+**Proof.**
+For any $z\in\mathbb{R}$,
 $$
 \begin{align}
 \mathbb{P}(Z\le z)
@@ -82,8 +84,8 @@ $$
 &=F_X(z).
 \end{align}
 $$
-
 The second step uses the fundamental equivalence above, and the third step uses the uniform distribution of $U$. Hence the distribution function of $Z$ is exactly $F_X$.
+$\blacksquare$
 
 Therefore, inverse transform sampling holds for discrete, continuous, and mixed distributions. The role of the generalized inverse is to unify the non-strictly monotone case: when $F_X$ is a step function or has flat regions, $F_X^{-1}$ can still uniquely map $u\in(0,1)$ to the corresponding sample.
 
@@ -102,7 +104,7 @@ U\sim \mathrm{Unif}(0,1).
 \end{align}
 $$
 
-Proof. For any $u\in[0,1]$,
+**Proof.** For any $u\in[0,1]$,
 $$
 \begin{align}
 \mathbb{P}(U\le u)
@@ -133,8 +135,8 @@ $$
 =u.
 \end{align}
 $$
-
 Hence $U$ follows the standard uniform distribution.
+$\blacksquare$
 
 This shows that in the continuous case, a random variable can be mapped to a uniform distribution through its own CDF.
 
@@ -166,7 +168,7 @@ U\sim \mathrm{Unif}(0,1).
 \end{align}
 $$
 
-Proof. For any $u\in[0,1]$, define
+**Proof.** For any $u\in[0,1]$, define
 $$
 \begin{align}
 x_u=\inf\{x:F_X(x)\ge u\}=F_X^{-1}(u).
@@ -243,6 +245,7 @@ $$
 U\sim \mathrm{Unif}(0,1).
 \end{align}
 $$
+$\blacksquare$
 
 When $F_X$ is continuous, $F_X(x^-)=F_X(x)$, and the above reduces to
 $$
@@ -328,8 +331,9 @@ $$
 &=u.
 \end{align}
 $$
+$\blacksquare$
 
-In summary, the distribution function of $F_X(X)$ always lies below the diagonal $y=u$, and achieves equality only when $u$ belongs to the range of $F_X$. In other words, without external randomization, the probability integral transform yields a **sub-uniform** variable rather than a truly uniform one.
+In summary, the distribution function of $F_X(X)$ always lies below the diagonal $y=u$, and achieves equality only when $u$ belongs to the range of $F_X$. In other words, without external randomization, the probability integral transform yields a sub-uniform variable rather than a truly uniform one.
 
 ### Unified Conclusion
 
