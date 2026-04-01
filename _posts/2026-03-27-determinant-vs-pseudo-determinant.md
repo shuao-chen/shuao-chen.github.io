@@ -9,72 +9,140 @@ published: true
 
 ### Multiplicativity of the determinant
 
-Assume $A,B \in \mathbb{C}^{n\times n}$.
+Assume that $A,B \in \mathbb{C}^{n\times n}$. Let $E$ denote the $n\times n$ identity matrix.
 
-We first state several basic lemmas.
-
-**Lemma 1.** For block matrices,
+The goal is to prove that
 $$
 \begin{align}
-\left|\begin{array}{cc}
+\det(AB)=\det(A)\det(B).
+\end{align}
+$$
+
+To this end, several elementary identities for block matrices are first recalled.
+
+#### Lemma 1
+
+For any $n\times n$ matrices $A,B,C$,
+$$
+\begin{align}
+\det\!\begin{pmatrix}
 A & 0\\
 C & B
-\end{array}\right| = |A||B|.
+\end{pmatrix}
+=
+\det(A)\det(B).
 \end{align}
 $$
 
-**Lemma 2.**
+This is the determinant formula for a block lower triangular matrix. Its meaning is exactly the same as for an ordinary lower triangular matrix: the determinant is the product of the determinants of the diagonal blocks. In the argument below, this lemma will be used to identify the determinant of a block matrix with $\det(A)\det(B)$.
+
+#### Lemma 2
+
+For any $n\times n$ matrices $A,B,C$,
 $$
 \begin{align}
-\left|\begin{array}{cc}
+\det\!\begin{pmatrix}
 A & C\\
 0 & B
-\end{array}\right| = |A||B|.
+\end{pmatrix}
+=
+\det(A)\det(B).
 \end{align}
 $$
 
-**Lemma 3.**
+Similarly, this is the determinant formula for a block upper triangular matrix. It will later be applied to the block matrix whose lower-right block is $AB$, thereby producing $\det(AB)$.
+
+#### Lemma 3
+
+For any $n\times n$ matrices $A,B,C,D,X$,
 $$
 \begin{align}
-\left|\begin{pmatrix}
+\det\!\left(
+\begin{pmatrix}
 E & 0\\
 X & E
 \end{pmatrix}
 \begin{pmatrix}
 A & B\\
 C & D
-\end{pmatrix}\right|
+\end{pmatrix}
+\right)
 =
-\left|\begin{pmatrix}
+\det\!\begin{pmatrix}
 A & B\\
 C & D
-\end{pmatrix}\right|.
+\end{pmatrix}.
 \end{align}
 $$
-This follows from the invariance of the determinant under elementary row operations (adding a multiple of one row to another).
 
-**Lemma 4.**
+Indeed,
 $$
 \begin{align}
-\left|\begin{pmatrix}
+\begin{pmatrix}
+E & 0\\
+X & E
+\end{pmatrix}
+\begin{pmatrix}
+A & B\\
+C & D
+\end{pmatrix}
+=
+\begin{pmatrix}
+A & B\\
+XA+C & XB+D
+\end{pmatrix}.
+\end{align}
+$$
+
+Hence, left multiplication by $\begin{pmatrix} E & 0\\ X & E \end{pmatrix}$ amounts to adding $X$ times the first block row to the second block row. This is the block version of an elementary row operation, and therefore does not change the determinant. In the proof, this lemma allows one to insert such a factor without altering the determinant.
+
+#### Lemma 4
+
+For any $n\times n$ matrices $A,B,C,D,X$,
+$$
+\begin{align}
+\det\!\left(
+\begin{pmatrix}
 E & X\\
 0 & E
 \end{pmatrix}
 \begin{pmatrix}
 A & B\\
 C & D
-\end{pmatrix}\right|
+\end{pmatrix}
+\right)
 =
-\left|\begin{pmatrix}
+\det\!\begin{pmatrix}
 A & B\\
 C & D
-\end{pmatrix}\right|.
+\end{pmatrix}.
 \end{align}
 $$
 
+Indeed,
+$$
+\begin{align}
+\begin{pmatrix}
+E & X\\
+0 & E
+\end{pmatrix}
+\begin{pmatrix}
+A & B\\
+C & D
+\end{pmatrix}
+=
+\begin{pmatrix}
+A+XC & B+XD\\
+C & D
+\end{pmatrix}.
+\end{align}
+$$
+
+Thus, left multiplication by $\begin{pmatrix} E & X\\ 0 & E \end{pmatrix}$ adds $X$ times the second block row to the first block row, which again leaves the determinant unchanged.
+
 ---
 
-Now consider the matrix identity
+With these preparations, consider the identity
 $$
 \begin{align}
 \begin{pmatrix}
@@ -95,16 +163,16 @@ E & B
 \end{pmatrix}
 =
 \begin{pmatrix}
-E & B - AB\\
+E & B-AB\\
 0 & AB
 \end{pmatrix}.
 \end{align}
 $$
 
-Taking determinants on both sides yields
+This identity is obtained by direct block multiplication. Taking determinants on both sides gives
 $$
 \begin{align}
-\left|
+\det\!\left(
 \begin{pmatrix}
 E & 0\\
 - E & E
@@ -121,69 +189,109 @@ E & -A\\
 A & 0\\
 E & B
 \end{pmatrix}
-\right|
+\right)
 =
-\left|
-\begin{array}{cc}
-E & B - AB\\
+\det\!\begin{pmatrix}
+E & B-AB\\
 0 & AB
-\end{array}
-\right|.
+\end{pmatrix}.
 \end{align}
 $$
 
-By Lemmas 3, 4, and 1, the left-hand side becomes
+Now the determinant of the left-hand side is simplified step by step.
+
+First, by Lemma 3 and Lemma 4, multiplying on the left by
+$\begin{pmatrix} E & 0\\ -E & E \end{pmatrix}$,
+$\begin{pmatrix} E & E\\ 0 & E \end{pmatrix}$,
+and
+$\begin{pmatrix} E & -A\\ 0 & E \end{pmatrix}$
+does not change the determinant. Therefore,
 $$
 \begin{align}
-\left|
+\det\!\left(
+\begin{pmatrix}
+E & 0\\
+- E & E
+\end{pmatrix}
+\begin{pmatrix}
+E & E\\
+0 & E
+\end{pmatrix}
+\begin{pmatrix}
+E & -A\\
+0 & E
+\end{pmatrix}
 \begin{pmatrix}
 A & 0\\
 E & B
 \end{pmatrix}
-\right|
-= |A||B|.
+\right)
+=
+\det\!\begin{pmatrix}
+A & 0\\
+E & B
+\end{pmatrix}.
 \end{align}
 $$
 
-By Lemma 2, the right-hand side satisfies
+Next, Lemma 1 yields
 $$
 \begin{align}
-\left|
-\begin{array}{cc}
-E & B - AB\\
+\det\!\begin{pmatrix}
+A & 0\\
+E & B
+\end{pmatrix}
+=
+\det(A)\det(B).
+\end{align}
+$$
+
+On the other hand, by Lemma 2,
+$$
+\begin{align}
+\det\!\begin{pmatrix}
+E & B-AB\\
 0 & AB
-\end{array}
-\right|
-= |E||AB| = |AB|.
+\end{pmatrix}
+=
+\det(E)\det(AB)
+=
+\det(AB),
+\end{align}
+$$
+since $\det(E)=1$.
+
+Combining the two sides gives
+$$
+\begin{align}
+\det(A)\det(B)=\det(AB).
 \end{align}
 $$
 
-Combining the above equalities yields
+Equivalently,
 $$
 \begin{align}
-|A||B| = |AB|.
+\det(AB)=\det(A)\det(B).
 \end{align}
 $$
 
 ---
 
-For completeness, the above argument can be summarized compactly as
+For convenience, the entire argument may also be summarized in the following chain:
 $$
 \begin{align}
-|A||B|
-=&\left|\begin{pmatrix} A & 0 \\ E& B\end{pmatrix} \right| \\
-=&\left|\begin{pmatrix} E & -A\\ 0& E\end{pmatrix} \begin{pmatrix} A & 0 \\ E& B\end{pmatrix}\right| \\
-=&\left|\begin{pmatrix} E & E\\ 0& E\end{pmatrix} \begin{pmatrix} E & -A\\ 0& E\end{pmatrix} \begin{pmatrix} A & 0 \\ E& B\end{pmatrix}\right| \\
-=&\left|\begin{pmatrix} E & 0\\ -E& E\end{pmatrix} \begin{pmatrix} E & E\\ 0& E\end{pmatrix} \begin{pmatrix} E & -A\\ 0& E\end{pmatrix} \begin{pmatrix} A & 0 \\ E& B\end{pmatrix}\right| \\
-=&\left|\begin{pmatrix} E & B-AB\\ 0&AB\end{pmatrix}\right| \\
-=&|E||AB| \\
-=&|AB|.
+\det(A)\det(B)
+=&\det\!\begin{pmatrix} A & 0 \\ E & B\end{pmatrix} \\
+=&\det\!\left(\begin{pmatrix} E & -A\\ 0& E\end{pmatrix} \begin{pmatrix} A & 0 \\ E& B\end{pmatrix}\right) \\
+=&\det\!\left(\begin{pmatrix} E & E\\ 0& E\end{pmatrix} \begin{pmatrix} E & -A\\ 0& E\end{pmatrix} \begin{pmatrix} A & 0 \\ E& B\end{pmatrix}\right) \\
+=&\det\!\left(\begin{pmatrix} E & 0\\ -E& E\end{pmatrix} \begin{pmatrix} E & E\\ 0& E\end{pmatrix} \begin{pmatrix} E & -A\\ 0& E\end{pmatrix} \begin{pmatrix} A & 0 \\ E& B\end{pmatrix}\right) \\
+=&\det\!\begin{pmatrix} E & B-AB\\ 0&AB\end{pmatrix} \\
+=&\det(E)\det(AB) \\
+=&\det(AB).
 \end{align}
 $$
 
----
-
-*This proof follows a standard block matrix factorization argument; see also:*  
+This proof follows a standard block-matrix argument; see also  
 https://zhuanlan.zhihu.com/p/297827171
 
 ---
