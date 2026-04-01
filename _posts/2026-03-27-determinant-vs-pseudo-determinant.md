@@ -39,6 +39,7 @@ A & C\\
 \end{align}
 $$
 </em>
+
 These correspond to the determinant formulas for block lower and upper triangular matrices. In both cases, the determinant equals the product of the determinants of the diagonal blocks. This follows directly from the multilinearity of the determinant with respect to rows (or columns), since the zero block eliminates any cross-term contributions in the expansion.
 
 **Lemma 2.**
@@ -136,7 +137,7 @@ $$
 This identity is obtained by direct block multiplication. Taking determinants on both sides gives
 $$
 \begin{align}
-\det\!\left(
+\det\\!\left(
 \begin{pmatrix}
 E & 0\\\\  
 - E & E
@@ -155,7 +156,7 @@ E & B
 \end{pmatrix}
 \right)
 =
-\det\!\begin{pmatrix}
+\det\\!\begin{pmatrix}
 E & B-AB\\\\  
 0 & AB
 \end{pmatrix}.
@@ -172,7 +173,7 @@ $\begin{pmatrix} E & -A\\\\ 0 & E \end{pmatrix}$
 does not change the determinant. Therefore,
 $$
 \begin{align}
-\det\!\left(
+\det\\!\left(
 \begin{pmatrix}
 E & 0\\\\  
 - E & E
@@ -191,7 +192,7 @@ E & B
 \end{pmatrix}
 \right)
 =
-\det\!\begin{pmatrix}
+\det\\!\begin{pmatrix}
 A & 0\\\\  
 E & B
 \end{pmatrix}.
