@@ -203,11 +203,36 @@ $$
 $$
 
 This note is based on:
-- A block-matrix proof of $\det(AB)=\det(A)\det(B)$, Zhihu note. [Link](https://zhuanlan.zhihu.com/p/297827171)
+- A block-matrix proof of $\det(AB)=\det(A)\det(B)$, [Zhihu note.](https://zhuanlan.zhihu.com/p/297827171)
 
-### Failure of multiplicativity: counterexamples
+### Pseudo-determinant and failure of multiplicativity
 
-In general, the pseudo-determinant does not satisfy a multiplicative property. This can be seen from explicit counterexamples.
+We first give the definition of the pseudo-determinant.
+
+**Definition 1.**  
+<em>
+Let $A \in \mathbb{C}^{n\times n}$ with eigenvalues $\{\lambda_i\}_{i=1}^n$ (counted with multiplicity). The pseudo-determinant of $A$ is defined as
+$$
+\begin{align}
+\det^+(A) = \prod_{\lambda_i \neq 0} \lambda_i.
+\end{align}
+$$
+Equivalently, if $\mathrm{rank}(A)=r$, then
+$$
+\begin{align}
+\det^+(A)=\prod_{i=1}^{r}\lambda_i,
+\end{align}
+$$
+where $\{\lambda_i\}_{i=1}^r$ are the nonzero eigenvalues.
+</em>
+
+In general, the pseudo-determinant does not satisfy a multiplicative property, i.e.,
+$$
+\begin{align}
+\det^+(AB) \neq \det^+(A)\det^+(B)
+\end{align}
+$$
+in general. This can be seen from the following counterexamples.
 
 #### Counterexample 1 (both matrices rank-deficient)
 
@@ -244,23 +269,21 @@ AB=
 \end{pmatrix},
 \end{align}
 $$
-so that
+which has nonzero eigenvalue $2$, and thus
 $$
 \begin{align}
 \det^+(AB)=2.
 \end{align}
 $$
 
-Thus,
+Therefore,
 $$
 \begin{align}
 \det^+(AB) \neq \det^+(A)\det^+(B).
 \end{align}
 $$
 
----
-
-#### Counterexample 2 (only one matrix rank-deficient)
+#### Counterexample 2 (one matrix invertible)
 
 Let
 $$
@@ -272,7 +295,7 @@ A=
 \end{pmatrix}, \quad
 B=
 \begin{pmatrix}
-1 & 1\\
+2 & 0\\
 0 & 1
 \end{pmatrix}.
 \end{align}
@@ -281,42 +304,14 @@ $$
 Then
 $$
 \begin{align}
-\det^+(A)=1, \quad \det^+(B)=1.
+\det^+(A)=1, \quad \det^+(B)=2.
 \end{align}
 $$
 
-But
+Moreover,
 $$
 \begin{align}
 AB=
-\begin{pmatrix}
-1 & 1\\
-0 & 0
-\end{pmatrix},
-\end{align}
-$$
-whose eigenvalues are again $\{1,0\}$, hence
-$$
-\begin{align}
-\det^+(AB)=1.
-\end{align}
-$$
-
-Now consider instead
-$$
-\begin{align}
-B'=
-\begin{pmatrix}
-2 & 0\\
-0 & 1
-\end{pmatrix},
-\end{align}
-$$
-then
-$$
-\begin{align}
-\det^+(B')=2, \quad
-AB'=
 \begin{pmatrix}
 2 & 0\\
 0 & 0
@@ -326,29 +321,36 @@ $$
 so that
 $$
 \begin{align}
-\det^+(AB')=2.
+\det^+(AB)=2.
 \end{align}
 $$
-
-This shows that even when one matrix is invertible, the multiplicative structure is not governed solely by individual pseudo-determinants, but depends on how the nonzero eigenspaces interact.
-
----
 
 ### Structural reason for the failure
 
-The determinant depends on the full spectrum, while the pseudo-determinant depends only on the nonzero spectrum. Under matrix multiplication,
+The ordinary determinant and the pseudo-determinant encode fundamentally different geometric objects.
+
+For a square matrix $A \in \mathbb{C}^{n\times n}$, the determinant $\det(A)$ describes the signed volume scaling of the linear map induced by $A$ on the entire ambient space $\mathbb{C}^n$. Since matrix multiplication corresponds to composition of linear maps, and volume scaling is multiplicative under composition, one obtains the identity
 $$
 \begin{align}
-\mathrm{rank}(AB) \le \min\{\mathrm{rank}(A),\mathrm{rank}(B)\},
+\det(AB)=\det(A)\det(B).
 \end{align}
 $$
-and the nonzero eigenvalues of $AB$ are not determined solely by those of $A$ and $B$. In particular, multiplication may:
-- create new nonzero eigenvalues,
-- or eliminate existing ones through rank deficiency.
 
-Therefore, the multiplicative structure of eigenvalues is not preserved after removing zeros, which breaks the identity.
+The pseudo-determinant $\det^+(A)$ is of a different nature. When $A$ is singular, it does not describe the action of $A$ on the whole space, since part of the space is annihilated. Instead, it only records the product of the nonzero eigenvalues, that is, the multiplicative effect of $A$ on the spectral component associated with its nonzero spectrum.
 
----
+The essential difficulty is that this effective subspace is not fixed under multiplication. More precisely, the subspace on which $A$ acts nontrivially need not coincide with the corresponding subspace for $B$, nor with that for $AB$. Thus, although $\det^+(A)$ and $\det^+(B)$ each describe a partial spectral effect of the individual matrices, these two effects are generally associated with different subspaces, and therefore cannot be combined multiplicatively in any canonical way.
+
+This can also be seen from the spectral viewpoint. The eigenvalues of a product $AB$ are not determined by the eigenvalues of $A$ and $B$ separately, unless strong additional assumptions are imposed, such as simultaneous diagonalizability on a common invariant subspace. In particular, after zero eigenvalues are removed, the remaining nonzero spectrum of $AB)$ is not obtained by simply multiplying the nonzero eigenvalues of $A$ and those of $B$ term by term. Hence, the operation of “discarding the zero spectrum” is not compatible with matrix multiplication.
+
+Another way to phrase this is through rank and support. Although
+$$
+\begin{align}
+\mathrm{rank}(AB)\le \min\{\mathrm{rank}(A),\mathrm{rank}(B)\},
+\end{align}
+$$
+the failure of multiplicativity is not merely a consequence of rank reduction itself. The deeper reason is that the support of the product $AB$ is determined by the interaction between the range of $B$ and the null space of $A$. Part of the nontrivial action of $B$ may be mapped into directions that are subsequently annihilated by $A$, while new nonzero eigenvalues of $AB$ may emerge from the way these two operators are composed on the surviving subspace. Therefore, the nonzero spectral data of $AB$ depends on the relative position of the invariant, range, and null spaces of $A$ and $B$, rather than only on the separate nonzero spectra of the two matrices.
+
+For this reason, unlike the ordinary determinant, the pseudo-determinant does not define a multiplicative functional on the full matrix algebra. Its value is not governed solely by the individual nonzero eigenvalues of the factors, but by how their effective spectral subspaces align under composition.
 
 ### Cases where multiplicativity holds
 
@@ -383,8 +385,6 @@ $$
 = \det^+(A)\det^+(B).
 \end{align}
 $$
-
----
 
 ### Summary
 
