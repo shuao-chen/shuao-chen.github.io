@@ -139,8 +139,7 @@ $$
 \begin{align}
 \det\\!\left(
 \begin{pmatrix}
-E & 0\\\\  
-- E & E
+E & 0\\\\  - E & E
 \end{pmatrix}
 \begin{pmatrix}
 E & E\\\\  
@@ -175,8 +174,7 @@ $$
 \begin{align}
 \det\\!\left(
 \begin{pmatrix}
-E & 0\\\\  
-- E & E
+E & 0\\\\  - E & E
 \end{pmatrix}
 \begin{pmatrix}
 E & E\\\\  
