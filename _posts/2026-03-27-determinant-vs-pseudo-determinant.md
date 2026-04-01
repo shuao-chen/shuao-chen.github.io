@@ -11,11 +11,6 @@ published: true
 
 Assume that $A,B \in \mathbb{C}^{n\times n}$. Let $E$ denote the $n\times n$ identity matrix.
 
-\begin{align}
-\det(AB)&=\det(A)\det(B). \\
-\det(AB)&=\det(A)\det(B).
-\end{align}
-
 The goal is to prove that
 $$
 \begin{align}
@@ -25,7 +20,7 @@ $$
 
 To this end, several elementary identities for block matrices are first recalled.
 
-**Lemma 1.**  
+**Lemma 1.**
 <em>
 For any $n\times n$ matrices $A,B,C$, the following identities hold:
 $$
@@ -34,7 +29,7 @@ $$
 A & 0\\
 C & B
 \end{pmatrix}
-= \det(A)\det(B), \qquad
+=
 \det\!\begin{pmatrix}
 A & C\\
 0 & B
@@ -67,7 +62,6 @@ C & D
 \end{pmatrix}.
 \end{align}
 $$
-
 Indeed,
 $$
 \begin{align}
