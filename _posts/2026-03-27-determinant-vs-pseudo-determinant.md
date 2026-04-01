@@ -137,7 +137,7 @@ $$
 This identity is obtained by direct block multiplication. Taking determinants on both sides gives
 $$
 \begin{align}
-\det\\!\left(
+\det\!\left(
 \begin{pmatrix}
 E & 0\\\\  - E & E
 \end{pmatrix}
@@ -155,7 +155,7 @@ E & B
 \end{pmatrix}
 \right)
 =
-\det\\!\begin{pmatrix}
+\det\!\begin{pmatrix}
 E & B-AB\\\\  
 0 & AB
 \end{pmatrix}.
@@ -172,7 +172,7 @@ $\begin{pmatrix} E & -A\\\\ 0 & E \end{pmatrix}$
 does not change the determinant. Therefore,
 $$
 \begin{align}
-\det\\!\left(
+\det\!\left(
 \begin{pmatrix}
 E & 0\\\\  - E & E
 \end{pmatrix}
@@ -190,7 +190,7 @@ E & B
 \end{pmatrix}
 \right)
 =
-\det\\!\begin{pmatrix}
+\det\!\begin{pmatrix}
 A & 0\\\\  
 E & B
 \end{pmatrix}.
