@@ -9,45 +9,182 @@ published: true
 
 ### Multiplicativity of the determinant
 
-For any square matrices \(A,B \in \mathbb{C}^{n\times n}\), the determinant satisfies
+Assume $A,B \in \mathbb{C}^{n\times n}$.
+
+We first state several basic lemmas.
+
+**Lemma 1.** For block matrices,
 $$
 \begin{align}
-\det(AB)=\det(A)\det(B).
+\left|\begin{array}{cc}
+A & 0\\
+C & B
+\end{array}\right| = |A||B|.
 \end{align}
 $$
 
-This property follows from the fundamental definition of the determinant as an alternating multilinear function of the columns. Specifically, for any fixed matrix \(A\), the mapping
+**Lemma 2.**
 $$
 \begin{align}
-B \mapsto \det(AB)
+\left|\begin{array}{cc}
+A & C\\
+0 & B
+\end{array}\right| = |A||B|.
 \end{align}
 $$
-is multilinear in the columns of \(B\), and inherits the alternating property. Therefore, it must be proportional to \(\det(B)\), i.e.,
+
+**Lemma 3.**
 $$
 \begin{align}
-\det(AB) = c(A)\det(B),
+\left|\begin{pmatrix}
+E & 0\\
+X & E
+\end{pmatrix}
+\begin{pmatrix}
+A & B\\
+C & D
+\end{pmatrix}\right|
+=
+\left|\begin{pmatrix}
+A & B\\
+C & D
+\end{pmatrix}\right|.
 \end{align}
 $$
-for some scalar \(c(A)\). Evaluating at \(B=I\) yields \(c(A)=\det(A)\), which establishes the result.
+This follows from the invariance of the determinant under elementary row operations (adding a multiple of one row to another).
+
+**Lemma 4.**
+$$
+\begin{align}
+\left|\begin{pmatrix}
+E & X\\
+0 & E
+\end{pmatrix}
+\begin{pmatrix}
+A & B\\
+C & D
+\end{pmatrix}\right|
+=
+\left|\begin{pmatrix}
+A & B\\
+C & D
+\end{pmatrix}\right|.
+\end{align}
+$$
 
 ---
 
-### Definition of the pseudo-determinant
-
-For a matrix \(A \in \mathbb{C}^{n\times n}\) with eigenvalues \(\{\lambda_i\}_{i=1}^n\), the pseudo-determinant is defined as
+Now consider the matrix identity
 $$
 \begin{align}
-\det^+(A) = \prod_{\lambda_i \neq 0} \lambda_i.
+\begin{pmatrix}
+E & 0\\
+- E & E
+\end{pmatrix}
+\begin{pmatrix}
+E & E\\
+0 & E
+\end{pmatrix}
+\begin{pmatrix}
+E & -A\\
+0 & E
+\end{pmatrix}
+\begin{pmatrix}
+A & 0\\
+E & B
+\end{pmatrix}
+=
+\begin{pmatrix}
+E & B - AB\\
+0 & AB
+\end{pmatrix}.
 \end{align}
 $$
 
-Equivalently, if \(\mathrm{rank}(A)=r\), then
+Taking determinants on both sides yields
 $$
 \begin{align}
-\det^+(A)=\prod_{i=1}^{r}\lambda_i,
+\left|
+\begin{pmatrix}
+E & 0\\
+- E & E
+\end{pmatrix}
+\begin{pmatrix}
+E & E\\
+0 & E
+\end{pmatrix}
+\begin{pmatrix}
+E & -A\\
+0 & E
+\end{pmatrix}
+\begin{pmatrix}
+A & 0\\
+E & B
+\end{pmatrix}
+\right|
+=
+\left|
+\begin{array}{cc}
+E & B - AB\\
+0 & AB
+\end{array}
+\right|.
 \end{align}
 $$
-where \(\{\lambda_i\}_{i=1}^r\) are the nonzero eigenvalues counted with multiplicity.
+
+By Lemmas 3, 4, and 1, the left-hand side becomes
+$$
+\begin{align}
+\left|
+\begin{pmatrix}
+A & 0\\
+E & B
+\end{pmatrix}
+\right|
+= |A||B|.
+\end{align}
+$$
+
+By Lemma 2, the right-hand side satisfies
+$$
+\begin{align}
+\left|
+\begin{array}{cc}
+E & B - AB\\
+0 & AB
+\end{array}
+\right|
+= |E||AB| = |AB|.
+\end{align}
+$$
+
+Combining the above equalities yields
+$$
+\begin{align}
+|A||B| = |AB|.
+\end{align}
+$$
+
+---
+
+For completeness, the above argument can be summarized compactly as
+$$
+\begin{align}
+|A||B|
+=&\left|\begin{pmatrix} A & 0 \\ E& B\end{pmatrix} \right| \\
+=&\left|\begin{pmatrix} E & -A\\ 0& E\end{pmatrix} \begin{pmatrix} A & 0 \\ E& B\end{pmatrix}\right| \\
+=&\left|\begin{pmatrix} E & E\\ 0& E\end{pmatrix} \begin{pmatrix} E & -A\\ 0& E\end{pmatrix} \begin{pmatrix} A & 0 \\ E& B\end{pmatrix}\right| \\
+=&\left|\begin{pmatrix} E & 0\\ -E& E\end{pmatrix} \begin{pmatrix} E & E\\ 0& E\end{pmatrix} \begin{pmatrix} E & -A\\ 0& E\end{pmatrix} \begin{pmatrix} A & 0 \\ E& B\end{pmatrix}\right| \\
+=&\left|\begin{pmatrix} E & B-AB\\ 0&AB\end{pmatrix}\right| \\
+=&|E||AB| \\
+=&|AB|.
+\end{align}
+$$
+
+---
+
+*This proof follows a standard block matrix factorization argument; see also:*  
+https://zhuanlan.zhihu.com/p/297827171
 
 ---
 
@@ -73,7 +210,7 @@ B=
 \end{align}
 $$
 
-Both matrices have eigenvalues \(\{1,0\}\), hence
+Both matrices have eigenvalues $\{1,0\}$, hence
 $$
 \begin{align}
 \det^+(A)=1, \quad \det^+(B)=1.
@@ -141,7 +278,7 @@ AB=
 \end{pmatrix},
 \end{align}
 $$
-whose eigenvalues are again \(\{1,0\}\), hence
+whose eigenvalues are again $\{1,0\}$, hence
 $$
 \begin{align}
 \det^+(AB)=1.
@@ -188,7 +325,7 @@ $$
 \mathrm{rank}(AB) \le \min\{\mathrm{rank}(A),\mathrm{rank}(B)\},
 \end{align}
 $$
-and the nonzero eigenvalues of \(AB\) are not determined solely by those of \(A\) and \(B\). In particular, multiplication may:
+and the nonzero eigenvalues of $AB$ are not determined solely by those of $A$ and $B$. In particular, multiplication may:
 - create new nonzero eigenvalues,
 - or eliminate existing ones through rank deficiency.
 
@@ -201,7 +338,7 @@ Therefore, the multiplicative structure of eigenvalues is not preserved after re
 A multiplicative relation can be recovered under restrictive conditions.
 
 1) **Invertible case**:  
-If both \(A\) and \(B\) are invertible, then
+If both $A$ and $B$ are invertible, then
 $$
 \begin{align}
 \det^+(A)=\det(A), \quad \det^+(B)=\det(B),
@@ -215,7 +352,7 @@ $$
 $$
 
 2) **Aligned support (common invariant subspace)**:  
-If \(A\) and \(B\) share the same nonzero eigenspace and are simultaneously diagonalizable on that subspace, then
+If $A$ and $B$ share the same nonzero eigenspace and are simultaneously diagonalizable on that subspace, then
 $$
 \begin{align}
 A=\mathrm{diag}(\lambda_1,\dots,\lambda_r,0), \quad
