@@ -121,7 +121,6 @@ $$
 $$
 
 This identity follows from direct block matrix multiplication.
-
 Taking determinants on both sides yields
 $$
 \begin{align}
@@ -178,9 +177,7 @@ $$
 \end{align}
 $$
 
----
-
-For clarity, the argument may be summarized as
+For clarity, the argument can be summarized as
 $$
 \begin{align}
 \det(A)\det(B)
@@ -207,8 +204,6 @@ $$
 
 This note is based on:
 - A block-matrix proof of $\det(AB)=\det(A)\det(B)$, Zhihu note. [Link](https://zhuanlan.zhihu.com/p/297827171)
-
----
 
 ### Failure of multiplicativity: counterexamples
 
