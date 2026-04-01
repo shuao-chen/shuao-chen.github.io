@@ -276,13 +276,6 @@ $$
 \end{align}
 $$
 
-Therefore,
-$$
-\begin{align}
-\det^+(AB) \neq \det^+(A)\det^+(B).
-\end{align}
-$$
-
 #### Counterexample 2 (one matrix invertible)
 
 Let
@@ -354,49 +347,73 @@ For this reason, unlike the ordinary determinant, the pseudo-determinant does no
 
 ### Cases where multiplicativity holds
 
-A multiplicative relation can be recovered under restrictive conditions.
+Although the pseudo-determinant is not multiplicative in general, a multiplicative relation can be recovered under restrictive structural conditions.
 
-1) **Invertible case**:  
-If both $A$ and $B$ are invertible, then
+1) **Invertible case**
+
+If both $A$ and $B$ are invertible, then there are no zero eigenvalues, and the pseudo-determinant reduces to the ordinary determinant:
 $$
 \begin{align}
-\det^+(A)=\det(A), \quad \det^+(B)=\det(B),
+\det^+(A)=\det(A), \quad \det^+(B)=\det(B).
 \end{align}
 $$
-and hence
+Therefore, multiplicativity follows immediately from that of the determinant:
 $$
 \begin{align}
-\det^+(AB)=\det^+(A)\det^+(B).
+\det^+(AB)=\det(AB)=\det(A)\det(B)=\det^+(A)\det^+(B).
 \end{align}
 $$
+In this case, no information is discarded, and the pseudo-determinant coincides with a fully multiplicative functional.
 
-2) **Aligned support (common invariant subspace)**:  
-If $A$ and $B$ share the same nonzero eigenspace and are simultaneously diagonalizable on that subspace, then
+2) **Aligned support (common invariant subspace)**
+
+A nontrivial multiplicative structure can still be recovered when the effective spectral subspaces of $A$ and $B$ are aligned.
+
+Specifically, suppose that there exists a decomposition of the ambient space
+$$
+\mathbb{C}^n = \mathcal{U} \oplus \mathcal{U}^\perp,
+$$
+such that:
+
+- both $A$ and $B$ leave $\mathcal{U}$ invariant,
+- both $A$ and $B$ vanish on $\mathcal{U}^\perp$,
+- and the restrictions of $A$ and $B$ to $\mathcal{U}$ are simultaneously diagonalizable.
+
+Then, with respect to a suitable basis, $A$ and $B$ admit the block forms
 $$
 \begin{align}
 A=\mathrm{diag}(\lambda_1,\dots,\lambda_r,0), \quad
 B=\mathrm{diag}(\mu_1,\dots,\mu_r,0),
 \end{align}
 $$
-which implies
+where the nonzero parts act on the same $r$-dimensional subspace $\mathcal{U}$.
+
+In this setting, the product satisfies
 $$
 \begin{align}
-\det^+(AB)=\prod_{i=1}^r \lambda_i \mu_i
+AB=\mathrm{diag}(\lambda_1\mu_1,\dots,\lambda_r\mu_r,0),
+\end{align}
+$$
+and hence
+$$
+\begin{align}
+\det^+(AB)
+= \prod_{i=1}^r \lambda_i \mu_i
+= \left(\prod_{i=1}^r \lambda_i\right)\left(\prod_{i=1}^r \mu_i\right)
 = \det^+(A)\det^+(B).
 \end{align}
 $$
 
+The key feature here is that the nonzero spectral components of $A$ and $B$ are supported on the same invariant subspace. As a result, the composition $AB$ acts on a fixed subspace where both operators are simultaneously diagonalizable, and the usual multiplicative structure of eigenvalues is preserved after restricting to this subspace.
+
+In contrast, when the supports are not aligned, the action of $B$ may partially lie in directions that are annihilated by $A$, or may be rotated into different subspaces, thereby destroying any canonical pairing between the nonzero eigenvalues of $A$, $B$, and $AB$.
+
 ### Summary
 
-- The determinant always satisfies
-$$
-\begin{align}
-\det(AB)=\det(A)\det(B).
-\end{align}
-$$
+The determinant and the pseudo-determinant exhibit fundamentally different algebraic behaviors.
 
-- The pseudo-determinant does not admit such a general multiplicative property.
+The determinant $\det(\cdot)$ defines a multiplicative functional on the full matrix algebra, reflecting the multiplicative nature of volume scaling under composition of linear maps. This multiplicativity holds without any structural assumptions.
 
-- The failure arises from the instability of the nonzero spectrum under matrix multiplication.
+In contrast, the pseudo-determinant $\det^+(\cdot)$ captures only the nonzero spectral component of a matrix and therefore depends on an implicit choice of effective subspace. Since this subspace is not preserved under matrix multiplication in general, the pseudo-determinant fails to be multiplicative.
 
-- Multiplicativity holds only under restrictive structural conditions such as invertibility or aligned support.
+A multiplicative relation can be recovered only when no information is lost (invertible case) or when the effective subspaces of the matrices are aligned and invariant under both operators. Outside of such restrictive settings, the pseudo-determinant is inherently non-multiplicative, and its value for a product $AB$ depends on the relative geometric configuration of the spectral subspaces of $A$ and $B$, rather than solely on their individual nonzero eigenvalues.
