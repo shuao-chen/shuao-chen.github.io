@@ -1,9 +1,11 @@
+---
 layout: post
 title: "Determinant vs Pseudo-Determinant"
 date: 2026-03-27
 categories: [theory]
 tags: [linear-algebra, determinant, pseudo-determinant, eigenvalues]
 published: true
+---
 
 ### Why $\det(AB)=\det(A)\det(B)$ holds
 
