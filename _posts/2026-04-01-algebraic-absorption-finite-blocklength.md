@@ -34,9 +34,7 @@ This approximation relies on a Gaussian approximation of $S_n$. For short blockl
 The third-order expansion via Edgeworth correction takes the form
 $$
 \begin{align}
-L^*(n,\epsilon)
-= nH_1 + \sqrt{nV} Q^{-1}(\epsilon)
-+ B(T,\epsilon) + O(n^{-1/2}),
+L^*(n,\epsilon) = nH_1 + \sqrt{nV} Q^{-1}(\epsilon) + B(T,\epsilon) + O(n^{-1/2}),
 \end{align}
 $$
 where $T$ denotes the third central moment.
