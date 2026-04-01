@@ -86,10 +86,7 @@ which satisfies $W_n = O(\sqrt{n})$.
 The centralized q-generalized information density is defined as
 $$
 \begin{align}
-S_{q_n}(X^n)
-= nH_1
-+ \frac{\exp((1-q_n)W_n)
-- \mathbb{E}[\exp((1-q_n)W_n)]}{1-q_n}.
+S_{q_n}(X^n) = nH_1 + \frac{\exp((1-q_n)W_n) - \mathbb{E}[\exp((1-q_n)W_n)]}{1-q_n}.
 \end{align}
 $$
 </em>
@@ -116,10 +113,7 @@ $$
 Expanding the definition gives
 $$
 \begin{align}
-S_{q_n}(X^n)
-= nH_1 + W_n
-+ \frac{1-q_n}{2}(W_n^2 - nV)
-+ O((1-q_n)^2).
+S_{q_n}(X^n) = nH_1 + W_n + \frac{1-q_n}{2}(W_n^2 - nV) + O((1-q_n)^2).
 \end{align}
 $$
 
@@ -130,9 +124,7 @@ Since $W_n^2 = O(n)$, the term $(1-q_n)W_n^2$ is of order $O(1)$ under this scal
 Under the Gaussian approximation $W_n = \sqrt{nV} Z$, one obtains
 $$
 \begin{align}
-S_{q_n}
-= nH_1 + \sqrt{nV} Z
-+ \frac{1-q_n}{2} nV (Z^2 - 1) + O(n^{-1/2}).
+S_{q_n} = nH_1 + \sqrt{nV} Z + \frac{1-q_n}{2} nV (Z^2 - 1) + O(n^{-1/2}).
 \end{align}
 $$
 
