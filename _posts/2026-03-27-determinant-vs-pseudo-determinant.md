@@ -33,7 +33,7 @@ C & B
 \det\!\begin{pmatrix}
 A & C\\
 0 & B
-\end{pmatrix},
+\end{pmatrix}
 \\
 &= \det(A)\det(B).
 \end{align}
@@ -66,7 +66,7 @@ E & X\\
 A & B\\
 C & D
 \end{pmatrix}
-\right), 
+\right)
 \\ 
 &=
 \det\!\begin{pmatrix}
@@ -94,7 +94,7 @@ E & X\\
 \begin{pmatrix}
 A & B\\
 C & D
-\end{pmatrix},
+\end{pmatrix}
 \\ 
 &=
 \begin{pmatrix}
@@ -138,25 +138,25 @@ $$
 \begin{align}
 \det\!\left(
 \begin{pmatrix}
-E & 0\\  
+E & 0\\\\  
 - E & E
 \end{pmatrix}
 \begin{pmatrix}
-E & E\\  
+E & E\\\\  
 0 & E
 \end{pmatrix}
 \begin{pmatrix}
-E & -A\\  
+E & -A\\\\ 
 0 & E
 \end{pmatrix}
 \begin{pmatrix}
-A & 0\\  
+A & 0\\\\  
 E & B
 \end{pmatrix}
 \right)
 =
 \det\!\begin{pmatrix}
-E & B-AB\\  
+E & B-AB\\\\  
 0 & AB
 \end{pmatrix}.
 \end{align}
@@ -174,25 +174,25 @@ $$
 \begin{align}
 \det\!\left(
 \begin{pmatrix}
-E & 0\\  
+E & 0\\\\  
 - E & E
 \end{pmatrix}
 \begin{pmatrix}
-E & E\\  
+E & E\\\\  
 0 & E
 \end{pmatrix}
 \begin{pmatrix}
-E & -A\\  
+E & -A\\\\  
 0 & E
 \end{pmatrix}
 \begin{pmatrix}
-A & 0\\  
+A & 0\\\\  
 E & B
 \end{pmatrix}
 \right)
 =
 \det\!\begin{pmatrix}
-A & 0\\  
+A & 0\\\\  
 E & B
 \end{pmatrix}.
 \end{align}
