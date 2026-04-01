@@ -211,7 +211,7 @@ We first give the definition of the pseudo-determinant.
 
 **Definition 1.**  
 <em>
-Let $A \in \mathbb{C}^{n\times n}$ with eigenvalues $\{\lambda_i\}_{i=1}^n$ (counted with multiplicity). The pseudo-determinant of $A$ is defined as
+Let $A \in \mathbb{C}^{n\times n}$ with eigenvalues $\\{\lambda_i\\}\_{i=1}^n$ (counted with multiplicity). The pseudo-determinant of $A$ is defined as
 $$
 \begin{align}
 \det^+(A) = \prod_{\lambda_i \neq 0} \lambda_i.
