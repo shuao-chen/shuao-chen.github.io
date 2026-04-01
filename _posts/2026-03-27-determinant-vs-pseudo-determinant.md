@@ -81,10 +81,10 @@ XA+C & XB+D
 \end{align}
 $$
 </em>
-Hence, left multiplication by $\begin{pmatrix} E & 0\\  X & E \end{pmatrix}$ amounts to adding $X$ times the first block row to the second block row. This is the block version of an elementary row operation, and therefore does not change the determinant. In the proof, this lemma allows one to insert such a factor without altering the determinant.
+Hence, left multiplication by $\begin{pmatrix} E & 0\\\\  X & E \end{pmatrix}$ amounts to adding $X$ times the first block row to the second block row. This is the block version of an elementary row operation, and therefore does not change the determinant. In the proof, this lemma allows one to insert such a factor without altering the determinant.
 
-#### Lemma 4
-
+**Lemma 3**
+<em>
 For any $n\times n$ matrices $A,B,C,D,X$,
 $$
 \begin{align}
@@ -105,7 +105,6 @@ C & D
 \end{pmatrix}.
 \end{align}
 $$
-
 Indeed,
 $$
 \begin{align}
@@ -124,8 +123,8 @@ C & D
 \end{pmatrix}.
 \end{align}
 $$
-
-Thus, left multiplication by $\begin{pmatrix} E & X\\  0 & E \end{pmatrix}$ adds $X$ times the second block row to the first block row, which again leaves the determinant unchanged.
+</em>
+Thus, left multiplication by $\begin{pmatrix} E & X\\\\  0 & E \end{pmatrix}$ adds $X$ times the second block row to the first block row, which again leaves the determinant unchanged.
 
 ---
 
