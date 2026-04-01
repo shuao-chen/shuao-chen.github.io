@@ -40,9 +40,9 @@ $$
 </em>
 These correspond to the determinant formulas for block lower and upper triangular matrices. In both cases, the determinant equals the product of the determinants of the diagonal blocks. This follows directly from the multilinearity of the determinant with respect to rows (or columns), since the zero block eliminates any cross-term contributions in the expansion.
 
-**Lemma 2.**
+**Lemma 2.**  
 <em>
-For any $n\times n$ matrices $A,B,C,D,X$,
+For any $n\times n$ matrices $A,B,C,D,X$, the following identities hold:
 $$
 \begin{align}
 \det\!\left(
@@ -55,7 +55,22 @@ A & B\\
 C & D
 \end{pmatrix}
 \right)
-=
+&=
+\det\!\begin{pmatrix}
+A & B\\
+C & D
+\end{pmatrix},\\
+\det\!\left(
+\begin{pmatrix}
+E & X\\
+0 & E
+\end{pmatrix}
+\begin{pmatrix}
+A & B\\
+C & D
+\end{pmatrix}
+\right)
+&=
 \det\!\begin{pmatrix}
 A & B\\
 C & D
@@ -73,22 +88,11 @@ X & E
 A & B\\
 C & D
 \end{pmatrix}
-=
+&=
 \begin{pmatrix}
 A & B\\
 XA+C & XB+D
-\end{pmatrix}.
-\end{align}
-$$
-</em>
-Hence, left multiplication by $\begin{pmatrix} E & 0\\\\  X & E \end{pmatrix}$ amounts to adding $X$ times the first block row to the second block row. This is the block version of an elementary row operation, and therefore does not change the determinant. In the proof, this lemma allows one to insert such a factor without altering the determinant.
-
-**Lemma 3**
-<em>
-For any $n\times n$ matrices $A,B,C,D,X$,
-$$
-\begin{align}
-\det\!\left(
+\end{pmatrix},\\
 \begin{pmatrix}
 E & X\\
 0 & E
@@ -97,26 +101,7 @@ E & X\\
 A & B\\
 C & D
 \end{pmatrix}
-\right)
-=
-\det\!\begin{pmatrix}
-A & B\\
-C & D
-\end{pmatrix}.
-\end{align}
-$$
-Indeed,
-$$
-\begin{align}
-\begin{pmatrix}
-E & X\\
-0 & E
-\end{pmatrix}
-\begin{pmatrix}
-A & B\\
-C & D
-\end{pmatrix}
-=
+&=
 \begin{pmatrix}
 A+XC & B+XD\\
 C & D
@@ -124,7 +109,8 @@ C & D
 \end{align}
 $$
 </em>
-Thus, left multiplication by $\begin{pmatrix} E & X\\\\  0 & E \end{pmatrix}$ adds $X$ times the second block row to the first block row, which again leaves the determinant unchanged.
+
+Hence, left multiplication by $\begin{pmatrix} E & 0\\\\ X & E \end{pmatrix}$ amounts to adding $X$ times the first block row to the second block row, while left multiplication by $\begin{pmatrix} E & X\\\\ 0 & E \end{pmatrix}$ adds $X$ times the second block row to the first block row. Both operations are block versions of elementary row operations and therefore leave the determinant unchanged.
 
 ---
 
