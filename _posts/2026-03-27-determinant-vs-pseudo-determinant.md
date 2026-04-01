@@ -107,8 +107,6 @@ $$
 
 Hence, left multiplication by $\begin{pmatrix} E & 0\\\\ X & E \end{pmatrix}$ amounts to adding $X$ times the first block row to the second block row, while left multiplication by $\begin{pmatrix} E & X\\\\ 0 & E \end{pmatrix}$ adds $X$ times the second block row to the first block row. Both operations are block versions of elementary row operations and therefore leave the determinant unchanged.
 
----
-
 With these preparations, consider the identity
 $$
 \begin{align}
@@ -140,25 +138,25 @@ $$
 \begin{align}
 \det\!\left(
 \begin{pmatrix}
-E & 0\\
+E & 0\\  
 - E & E
 \end{pmatrix}
 \begin{pmatrix}
-E & E\\
+E & E\\  
 0 & E
 \end{pmatrix}
 \begin{pmatrix}
-E & -A\\
+E & -A\\  
 0 & E
 \end{pmatrix}
 \begin{pmatrix}
-A & 0\\
+A & 0\\  
 E & B
 \end{pmatrix}
 \right)
 =
 \det\!\begin{pmatrix}
-E & B-AB\\
+E & B-AB\\  
 0 & AB
 \end{pmatrix}.
 \end{align}
@@ -167,34 +165,34 @@ $$
 Now the determinant of the left-hand side is simplified step by step.
 
 First, by Lemma 3 and Lemma 4, multiplying on the left by
-$\begin{pmatrix} E & 0\\ -E & E \end{pmatrix}$,
-$\begin{pmatrix} E & E\\ 0 & E \end{pmatrix}$,
+$\begin{pmatrix} E & 0\\\\ -E & E \end{pmatrix}$,
+$\begin{pmatrix} E & E\\\\ 0 & E \end{pmatrix}$,
 and
-$\begin{pmatrix} E & -A\\ 0 & E \end{pmatrix}$
+$\begin{pmatrix} E & -A\\\\ 0 & E \end{pmatrix}$
 does not change the determinant. Therefore,
 $$
 \begin{align}
 \det\!\left(
 \begin{pmatrix}
-E & 0\\
+E & 0\\  
 - E & E
 \end{pmatrix}
 \begin{pmatrix}
-E & E\\
+E & E\\  
 0 & E
 \end{pmatrix}
 \begin{pmatrix}
-E & -A\\
+E & -A\\  
 0 & E
 \end{pmatrix}
 \begin{pmatrix}
-A & 0\\
+A & 0\\  
 E & B
 \end{pmatrix}
 \right)
 =
 \det\!\begin{pmatrix}
-A & 0\\
+A & 0\\  
 E & B
 \end{pmatrix}.
 \end{align}
@@ -204,7 +202,7 @@ Next, Lemma 1 yields
 $$
 \begin{align}
 \det\!\begin{pmatrix}
-A & 0\\
+A & 0\\  
 E & B
 \end{pmatrix}
 =
@@ -216,7 +214,7 @@ On the other hand, by Lemma 2,
 $$
 \begin{align}
 \det\!\begin{pmatrix}
-E & B-AB\\
+E & B-AB\\  
 0 & AB
 \end{pmatrix}
 =
