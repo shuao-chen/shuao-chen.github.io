@@ -349,7 +349,7 @@ For this reason, unlike the ordinary determinant, the pseudo-determinant does no
 
 Although the pseudo-determinant is not multiplicative in general, a multiplicative relation can be recovered under restrictive structural conditions.
 
-1) **Invertible case**
+#### Invertible case
 
 If both $A$ and $B$ are invertible, then there are no zero eigenvalues, and the pseudo-determinant reduces to the ordinary determinant:
 $$
@@ -365,7 +365,7 @@ $$
 $$
 In this case, no information is discarded, and the pseudo-determinant coincides with a fully multiplicative functional.
 
-2) **Aligned support (common invariant subspace)**
+#### Aligned support (common invariant subspace)
 
 A nontrivial multiplicative structure can still be recovered when the effective spectral subspaces of $A$ and $B$ are aligned.
 
