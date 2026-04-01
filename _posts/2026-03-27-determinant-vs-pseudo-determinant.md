@@ -139,8 +139,7 @@ With these preparations, consider the identity
 $$
 \begin{align}
 \begin{pmatrix}
-E & 0\\
-- E & E
+E & 0\\ - E & E
 \end{pmatrix}
 \begin{pmatrix}
 E & E\\
