@@ -111,111 +111,58 @@ Hence, left multiplication by $\begin{pmatrix} E & 0\\\\ X & E \end{pmatrix}$ am
 With these preparations, consider the identity
 $$
 \begin{align}
-\begin{pmatrix}
-E & 0\\ - E & E
-\end{pmatrix}
-\begin{pmatrix}
-E & E\\
-0 & E
-\end{pmatrix}
-\begin{pmatrix}
-E & -A\\
-0 & E
-\end{pmatrix}
-\begin{pmatrix}
-A & 0\\
-E & B
-\end{pmatrix}
+\begin{pmatrix} E & 0\\ -E & E \end{pmatrix}
+\begin{pmatrix} E & E\\ 0 & E \end{pmatrix}
+\begin{pmatrix} E & -A\\ 0 & E \end{pmatrix}
+\begin{pmatrix} A & 0\\ E & B \end{pmatrix}
 =
-\begin{pmatrix}
-E & B-AB\\
-0 & AB
-\end{pmatrix}.
+\begin{pmatrix} E & B-AB\\ 0 & AB \end{pmatrix}.
 \end{align}
 $$
 
-This identity is obtained by direct block multiplication. Taking determinants on both sides gives
+This identity follows from direct block matrix multiplication.
+
+Taking determinants on both sides yields
 $$
 \begin{align}
 \det\!\left(
-\begin{pmatrix}
-E & 0\\\\  - E & E
-\end{pmatrix}
-\begin{pmatrix}
-E & E\\\\  
-0 & E
-\end{pmatrix}
-\begin{pmatrix}
-E & -A\\\\ 
-0 & E
-\end{pmatrix}
-\begin{pmatrix}
-A & 0\\\\  
-E & B
-\end{pmatrix}
+\begin{pmatrix} E & 0\\ -E & E \end{pmatrix}
+\begin{pmatrix} E & E\\ 0 & E \end{pmatrix}
+\begin{pmatrix} E & -A\\ 0 & E \end{pmatrix}
+\begin{pmatrix} A & 0\\ E & B \end{pmatrix}
 \right)
 =
-\det\!\begin{pmatrix}
-E & B-AB\\\\  
-0 & AB
-\end{pmatrix}.
+\det\!\begin{pmatrix} E & B-AB\\ 0 & AB \end{pmatrix}.
 \end{align}
 $$
 
-Now the determinant of the left-hand side is simplified step by step.
-
-First, by Lemma 3 and Lemma 4, multiplying on the left by
-$\begin{pmatrix} E & 0\\\\ -E & E \end{pmatrix}$,
-$\begin{pmatrix} E & E\\\\ 0 & E \end{pmatrix}$,
-and
-$\begin{pmatrix} E & -A\\\\ 0 & E \end{pmatrix}$
-does not change the determinant. Therefore,
+On the left-hand side, each of the first three factors corresponds to a block elementary row operation. By Lemma 2, such operations do not change the determinant. Therefore,
 $$
 \begin{align}
 \det\!\left(
-\begin{pmatrix}
-E & 0\\\\  - E & E
-\end{pmatrix}
-\begin{pmatrix}
-E & E\\\\  
-0 & E
-\end{pmatrix}
-\begin{pmatrix}
-E & -A\\\\  
-0 & E
-\end{pmatrix}
-\begin{pmatrix}
-A & 0\\\\  
-E & B
-\end{pmatrix}
+\begin{pmatrix} E & 0\\ -E & E \end{pmatrix}
+\begin{pmatrix} E & E\\ 0 & E \end{pmatrix}
+\begin{pmatrix} E & -A\\ 0 & E \end{pmatrix}
+\begin{pmatrix} A & 0\\ E & B \end{pmatrix}
 \right)
 =
-\det\!\begin{pmatrix}
-A & 0\\\\  
-E & B
-\end{pmatrix}.
+\det\!\begin{pmatrix} A & 0\\ E & B \end{pmatrix}.
 \end{align}
 $$
 
-Next, Lemma 1 yields
+Applying Lemma 1 gives
 $$
 \begin{align}
-\det\!\begin{pmatrix}
-A & 0\\  
-E & B
-\end{pmatrix}
+\det\!\begin{pmatrix} A & 0\\ E & B \end{pmatrix}
 =
 \det(A)\det(B).
 \end{align}
 $$
 
-On the other hand, by Lemma 2,
+On the other hand, by Lemma 1 again (block upper triangular form),
 $$
 \begin{align}
-\det\!\begin{pmatrix}
-E & B-AB\\  
-0 & AB
-\end{pmatrix}
+\det\!\begin{pmatrix} E & B-AB\\ 0 & AB \end{pmatrix}
 =
 \det(E)\det(AB)
 =
@@ -224,33 +171,37 @@ E & B-AB\\
 $$
 since $\det(E)=1$.
 
-Combining the two sides gives
+Combining the two expressions yields
 $$
 \begin{align}
 \det(A)\det(B)=\det(AB).
 \end{align}
 $$
 
-Equivalently,
-$$
-\begin{align}
-\det(AB)=\det(A)\det(B).
-\end{align}
-$$
-
 ---
 
-For convenience, the entire argument may also be summarized in the following chain:
+For clarity, the argument may be summarized as
 $$
 \begin{align}
 \det(A)\det(B)
-=&\det\!\begin{pmatrix} A & 0 \\ E & B\end{pmatrix} \\
-=&\det\!\left(\begin{pmatrix} E & -A\\ 0& E\end{pmatrix} \begin{pmatrix} A & 0 \\ E& B\end{pmatrix}\right) \\
-=&\det\!\left(\begin{pmatrix} E & E\\ 0& E\end{pmatrix} \begin{pmatrix} E & -A\\ 0& E\end{pmatrix} \begin{pmatrix} A & 0 \\ E& B\end{pmatrix}\right) \\
-=&\det\!\left(\begin{pmatrix} E & 0\\ -E& E\end{pmatrix} \begin{pmatrix} E & E\\ 0& E\end{pmatrix} \begin{pmatrix} E & -A\\ 0& E\end{pmatrix} \begin{pmatrix} A & 0 \\ E& B\end{pmatrix}\right) \\
-=&\det\!\begin{pmatrix} E & B-AB\\ 0&AB\end{pmatrix} \\
-=&\det(E)\det(AB) \\
-=&\det(AB).
+&= \det\!\begin{pmatrix} A & 0\\ E & B \end{pmatrix} \\
+&= \det\!\left(
+\begin{pmatrix} E & -A\\ 0 & E \end{pmatrix}
+\begin{pmatrix} A & 0\\ E & B \end{pmatrix}
+\right) \\
+&= \det\!\left(
+\begin{pmatrix} E & E\\ 0 & E \end{pmatrix}
+\begin{pmatrix} E & -A\\ 0 & E \end{pmatrix}
+\begin{pmatrix} A & 0\\ E & B \end{pmatrix}
+\right) \\
+&= \det\!\left(
+\begin{pmatrix} E & 0\\ -E & E \end{pmatrix}
+\begin{pmatrix} E & E\\ 0 & E \end{pmatrix}
+\begin{pmatrix} E & -A\\ 0 & E \end{pmatrix}
+\begin{pmatrix} A & 0\\ E & B \end{pmatrix}
+\right) \\
+&= \det\!\begin{pmatrix} E & B-AB\\ 0 & AB \end{pmatrix} \\
+&= \det(AB).
 \end{align}
 $$
 
