@@ -11,6 +11,11 @@ published: true
 
 Assume that $A,B \in \mathbb{C}^{n\times n}$. Let $E$ denote the $n\times n$ identity matrix.
 
+\begin{align}
+\det(AB)&=\det(A)\det(B). \\
+\det(AB)&=\det(A)\det(B).
+\end{align}
+
 The goal is to prove that
 $$
 \begin{align}
