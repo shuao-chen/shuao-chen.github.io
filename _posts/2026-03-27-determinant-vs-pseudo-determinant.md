@@ -29,18 +29,19 @@ $$
 A & 0\\
 C & B
 \end{pmatrix}
-=
+&=
 \det\!\begin{pmatrix}
 A & C\\
 0 & B
-\end{pmatrix}
-= \det(A)\det(B).
+\end{pmatrix},
+\\
+&= \det(A)\det(B).
 \end{align}
 $$
 </em>
 These correspond to the determinant formulas for block lower and upper triangular matrices. In both cases, the determinant equals the product of the determinants of the diagonal blocks. This follows directly from the multilinearity of the determinant with respect to rows (or columns), since the zero block eliminates any cross-term contributions in the expansion.
 
-**Lemma 2.**  
+**Lemma 2.**
 <em>
 For any $n\times n$ matrices $A,B,C,D,X$, the following identities hold:
 $$
@@ -56,10 +57,6 @@ C & D
 \end{pmatrix}
 \right)
 &=
-\det\!\begin{pmatrix}
-A & B\\
-C & D
-\end{pmatrix},\\
 \det\!\left(
 \begin{pmatrix}
 E & X\\
@@ -69,7 +66,8 @@ E & X\\
 A & B\\
 C & D
 \end{pmatrix}
-\right)
+\right), 
+\\ 
 &=
 \det\!\begin{pmatrix}
 A & B\\
@@ -90,17 +88,14 @@ C & D
 \end{pmatrix}
 &=
 \begin{pmatrix}
-A & B\\
-XA+C & XB+D
-\end{pmatrix},\\
-\begin{pmatrix}
 E & X\\
 0 & E
 \end{pmatrix}
 \begin{pmatrix}
 A & B\\
 C & D
-\end{pmatrix}
+\end{pmatrix},
+\\ 
 &=
 \begin{pmatrix}
 A+XC & B+XD\\
