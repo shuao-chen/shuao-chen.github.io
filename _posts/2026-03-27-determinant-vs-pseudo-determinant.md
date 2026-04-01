@@ -20,40 +20,28 @@ $$
 
 To this end, several elementary identities for block matrices are first recalled.
 
-#### Lemma 1
-
-For any $n\times n$ matrices $A,B,C$,
+**Lemma 1.**  
+<em>
+For any $n\times n$ matrices $A,B,C$, the following identities hold:
 $$
 \begin{align}
 \det\!\begin{pmatrix}
 A & 0\\
 C & B
 \end{pmatrix}
-=
-\det(A)\det(B).
-\end{align}
-$$
-
-This is the determinant formula for a block lower triangular matrix. Its meaning is exactly the same as for an ordinary lower triangular matrix: the determinant is the product of the determinants of the diagonal blocks. In the argument below, this lemma will be used to identify the determinant of a block matrix with $\det(A)\det(B)$.
-
-#### Lemma 2
-
-For any $n\times n$ matrices $A,B,C$,
-$$
-\begin{align}
+= \det(A)\det(B), \qquad
 \det\!\begin{pmatrix}
 A & C\\
 0 & B
 \end{pmatrix}
-=
-\det(A)\det(B).
+= \det(A)\det(B).
 \end{align}
 $$
+</em>
+These correspond to the determinant formulas for block lower and upper triangular matrices. In both cases, the determinant equals the product of the determinants of the diagonal blocks. This follows directly from the multilinearity of the determinant with respect to rows (or columns), since the zero block eliminates any cross-term contributions in the expansion.
 
-Similarly, this is the determinant formula for a block upper triangular matrix. It will later be applied to the block matrix whose lower-right block is $AB$, thereby producing $\det(AB)$.
-
-#### Lemma 3
-
+**Lemma 2.**
+<em>
 For any $n\times n$ matrices $A,B,C,D,X$,
 $$
 \begin{align}
@@ -93,7 +81,7 @@ XA+C & XB+D
 \end{pmatrix}.
 \end{align}
 $$
-
+</em>
 Hence, left multiplication by $\begin{pmatrix} E & 0\\ X & E \end{pmatrix}$ amounts to adding $X$ times the first block row to the second block row. This is the block version of an elementary row operation, and therefore does not change the determinant. In the proof, this lemma allows one to insert such a factor without altering the determinant.
 
 #### Lemma 4
@@ -291,8 +279,8 @@ $$
 \end{align}
 $$
 
-This proof follows a standard block-matrix argument; see also  
-https://zhuanlan.zhihu.com/p/297827171
+This note is based on:
+- A block-matrix proof of $\det(AB)=\det(A)\det(B)$, Zhihu note. [Link](https://zhuanlan.zhihu.com/p/297827171)
 
 ---
 
