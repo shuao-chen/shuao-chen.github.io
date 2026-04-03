@@ -529,11 +529,37 @@ hence $Y\sim P$.
 $\blacksquare$
 
 **Remark 4.**
-Lemma 4 can be viewed as a marked extension of Lemma 1. Lemma 1 characterizes the first arrival time of a Poisson process, answering when the earliest point occurs. 
+Lemma 4 can be viewed as a marked extension of Lemma 1. Lemma 1 concerns only the temporal component of a Poisson process, and shows that the first arrival time is exponentially distributed. Thus, it answers the question of when the earliest point occurs.
 
-In Lemma 4, the process lives on $\mathcal Y \times \mathbb R_+$ with intensity $\nu(dy,dt)=P(dy)\,dt$, which has a product structure: the time coordinates form a unit-rate Poisson process, and each arrival is independently assigned a mark according to $P$. Thus, the index of the earliest point is determined solely by the time process, while the marks are independent of the times.
+Lemma 4 considers a Poisson point process on $\mathcal Y \times \mathbb R_+$ with intensity
+$$
+\begin{align}
+\nu(dy,dt)=P(dy)\,dt.
+\end{align}
+$$
+This product form means that the time coordinates form a unit-rate Poisson process on $\mathbb R_+$, and that each arrival point is independently assigned a mark according to $P$. Hence, if
+$$
+\begin{align}
+K=\arg\min_i T_i,
+\end{align}
+$$
+then the index $K$ is determined entirely by the time variables, while the marks $\{Y_i\}$ are independent of this choice.
 
-Therefore, once the earliest index is selected, the corresponding mark still follows $P$. In this sense, Lemma 1 describes the distribution of the first arrival time, while Lemma 4 describes the distribution of its mark.
+As a result, selecting the index $K$ does not bias the mark distribution: for every measurable set $A$,
+$$
+\begin{align}
+\mathbb P(Y_K\in A\mid K=k)=P(A),
+\end{align}
+$$
+since $Y_k\sim P$ for every $k$. Averaging over $K$ then gives
+$$
+\begin{align}
+\mathbb P(Y_K\in A)=P(A).
+\end{align}
+$$
+Therefore, the mark attached to the first arrival still has distribution $P$.
+
+In this sense, Lemma 1 identifies the distribution of the first arrival time, while Lemma 4 identifies the distribution of the mark associated with that first arrival.
 $\blacklozenge$
 
 Applying this lemma to the current setting with $P=P_{Y \mid X}(\cdot \mid x)$, we obtain
