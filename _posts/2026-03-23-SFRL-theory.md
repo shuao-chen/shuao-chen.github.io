@@ -476,7 +476,15 @@ H(Y|Z)\le I(X;Y)+\log\big(I(X;Y)+1\big)+4.
 ### Poisson Functional Representation Generates the Target Conditional Distribution
 
 We now show that the above Poisson functional representation construction can generate the target conditional distribution $Y \mid \\{X=x\\} \sim P_{Y \mid X}(\cdot \mid x).$
-Fix any $x$, and assume that $P_{Y \mid X}(\cdot \mid x) \ll P_Y$. Consider the marked Poisson point process $Z = \\{(\tilde Y_i, T_i)\\}\_{i\ge 1},$ where $\tilde Y_i \overset{\text{i.i.d.}}{\sim} P_Y$, and $\\{T_i\\}$ are the arrival times of a Poisson process with rate $1$. The intensity measure of this point process on $\mathcal Y\times\mathbb R_+$ is
+Fix any $x$, and assume that $P_{Y \mid X}(\cdot \mid x) \ll P_Y$. 
+
+**Remark 3.**
+Here $P_{Y \mid X}(\cdot \mid x) \ll P_Y$ means that $P_{Y \mid X}(\cdot \mid x)$ is absolutely continuous with respect to $P_Y$, i.e., for any measurable set $A$, if $P_Y(A)=0$, then $P_{Y \mid X}(A \mid x)=0$. Equivalently, the Radon–Nikodym derivative $\frac{dP_{Y|X}}{dP_Y}(y|x)$ exists.
+
+This condition ensures that the likelihood ratio used in the construction is well-defined, and in particular prevents division by zero in expressions such as $\frac{p_Y(y)}{p_{Y|X}(y|x)}$. Intuitively, it requires that the support of $P_{Y|X}(\cdot|x)$ is contained in the support of $P_Y$, so that the Poisson process, whose marks are drawn from $P_Y$, can cover all possible values that $Y$ may take under the conditional distribution.
+$\blacklozenge$
+
+Consider the marked Poisson point process $Z = \\{(\tilde Y_i, T_i)\\}\_{i\ge 1},$ where $\tilde Y_i \overset{\text{i.i.d.}}{\sim} P_Y$, and $\\{T_i\\}$ are the arrival times of a Poisson process with rate $1$. The intensity measure of this point process on $\mathcal Y\times\mathbb R_+$ is
 $$\begin{align}
     \nu(dy,dt)=P_Y(dy)\,dt.
 \end{align}$$
