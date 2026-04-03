@@ -501,7 +501,7 @@ $$\begin{align}
 
 We now state a basic result characterizing this structure.
 
-**Lemma 4.**
+**Lemma 4 (Distribution of the mark of the first arrival in a Poisson process).**
 <em>
 Let $\Pi$ be a Poisson point process on $\mathcal Y\times\mathbb R_+$ with intensity measure $\nu(dy,dt)=P(dy)\,dt,$ where $P$ is a probability measure. Let $T_i$ denote the time coordinates and $Y_i$ the corresponding marks, and define
 $$\begin{align}
@@ -527,6 +527,14 @@ $$\begin{align}
 \end{align}$$
 hence $Y\sim P$.
 $\blacksquare$
+
+**Remark 4.**
+Lemma 4 can be viewed as a marked extension of Lemma 1. Lemma 1 characterizes the first arrival time of a Poisson process, answering when the earliest point occurs. 
+
+In Lemma 4, the process lives on $\mathcal Y \times \mathbb R_+$ with intensity $\nu(dy,dt)=P(dy)\,dt$, which has a product structure: the time coordinates form a unit-rate Poisson process, and each arrival is independently assigned a mark according to $P$. Thus, the index of the earliest point is determined solely by the time process, while the marks are independent of the times.
+
+Therefore, once the earliest index is selected, the corresponding mark still follows $P$. In this sense, Lemma 1 describes the distribution of the first arrival time, while Lemma 4 describes the distribution of its mark.
+$\blacklozenge$
 
 Applying this lemma to the current setting with $P=P_{Y \mid X}(\cdot \mid x)$, we obtain
 $$\begin{align}
