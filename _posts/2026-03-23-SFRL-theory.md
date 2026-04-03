@@ -177,11 +177,7 @@ N_A(t)\sim \mathrm{Poisson}\left(t\int_A f_{Y|X}(y|x)\,dy\right),
 $$
 since for a Poisson point process, the number of points in any measurable region follows a Poisson distribution with parameter equal to the intensity measure of that region.
 
-Define the first arrival time into the set $A$ as
-$$\begin{align}
-\tau_A := \inf\{t\ge 0 : N_A(t)\ge 1\},
-\end{align}$$
-so that
+Define the first arrival time into the set $A$ as $\tau_A := \inf\\{t\ge 0 : N_A(t)\ge 1\\}$, so that
 $$\begin{align}
 \tau_A \sim \text{Exp}\left(\int_A f_{Y|X}(y|x)\,dy\right).
 \end{align}$$
