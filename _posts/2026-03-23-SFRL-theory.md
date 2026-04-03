@@ -196,10 +196,7 @@ Next, we use a basic result on independent exponential random variables.
 
 **Lemma 2.**
 <em>
-Let $T_1,\dots,T_n$ be independent exponential random variables with
-$$\begin{align}
-T_i \sim \text{Exp}(\lambda_i),\qquad \lambda_i>0,\; i=1,\dots,n.
-\end{align}$$
+Let $T_1,\dots,T_n$ be independent exponential random variables with $T_i \sim \text{Exp}(\lambda_i)$ and $\lambda_i>0,\; i=1,\dots,n$.
 Then
 $$\begin{align}
 \mathbb P\big(T_i = \min_{1\le j\le n} T_j\big)
