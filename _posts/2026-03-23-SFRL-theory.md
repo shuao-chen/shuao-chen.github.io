@@ -289,7 +289,7 @@ Y
 \right].
 \end{align}$$
 
-For each fixed $y$, the subprocess $\\{T_i:\tilde Y_i=y\\}$ is still a Poisson process by the thinning property, with rate $p_Y(y)$. Hence, its first arrival time satisfies
+For each fixed $y$, the subprocess $\\{T_i:\tilde Y_i=y\\}$ is still a Poisson process by the thinning property, with rate $p_Y(y)$. Hence, by Lemma 1, its first arrival time satisfies
 $$\begin{align}
 \min_{i:\tilde Y_i=y} T_i \sim \text{Exp}\big(p_Y(y)\big),
 \end{align}$$
@@ -305,11 +305,7 @@ Define
 $$\begin{align}
 Z_y := p_Y(y)\cdot \min_{i:\tilde Y_i=y} T_i,
 \end{align}$$
-then by the scaling property of exponential distributions,
-$$\begin{align}
-Z_y \sim \text{Exp}(1),
-\end{align}$$
-and $\\{Z_y\\}_{y\in\mathcal{Y}}$ are independent. Substituting back, we obtain
+then by the scaling property of exponential distributions, $Z_y \sim \mathrm{Exp}(1)$, and $\\{Z_y\\}_{y\in\mathcal{Y}}$ are independent. Substituting back, we obtain
 $$\begin{align}
 Y
 =
