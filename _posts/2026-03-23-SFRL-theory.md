@@ -314,7 +314,7 @@ Y
 \end{align}$$
 which is exactly the exponential race form above.
 
-Therefore, the original minimization over indices $i$ can be equivalently reduced to a minimization over the alphabet $\mathcal{Y}$. That is, instead of comparing all points $(\tilde Y_i,T_i)$, one only needs to keep the earliest arrival time for each class $y$, leading to the exponential race representation.
+Therefore, the original minimization over indices $i$ can be equivalently reduced to a minimization over the alphabet $\mathcal{Y}$. That is, instead of comparing all points $(\tilde Y_i,T_i)$, one only needs to keep the earliest arrival time for each class $y$, which yields an exponential race representation, where the competition is carried out among the corresponding exponential variables.
 
 Next, we show that this construction indeed generates the target conditional distribution. Since $\frac{Z_y}{p_{Y|X}(y|x)} \sim \text{Exp}\big(p_{Y|X}(y|x)\big),$ and the variables corresponding to different $y$ are independent, by the minimum property of exponential distributions, we have
 $$\begin{align}
