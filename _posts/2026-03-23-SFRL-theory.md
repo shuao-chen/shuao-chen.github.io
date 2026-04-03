@@ -137,7 +137,7 @@ The original selection rule is equivalent to choosing the point with the smalles
 
 For later analysis, we first state a basic result.
 
-**Lemma 1.**
+**Lemma 1 (The first arrival time of a Poisson process is exponentially distributed).**
 <em>
 Let $\Pi$ be a Poisson process on $\mathbb R_+$ with rate $\lambda$, and let $N(A)$ denote the number of points of $\Pi$ falling in a measurable set $A \subset \mathbb R_+$. In particular, $N([0,t])$ is the number of arrivals up to time $t$. Denote the first arrival time by
 $$\begin{align}
@@ -148,6 +148,8 @@ $$\begin{align}
 \tau \sim \text{Exp}(\lambda).
 \end{align}$$
 </em>
+
+This lemma shows that for any Poisson process, the minimum arrival time is exponentially distributed with parameter equal to its rate.
 
 **Proof.**
 For any $t\ge 0$, the event $\\{\tau>t\\}$ is equivalent to having no arrivals in the interval $[0,t]$, i.e.,
@@ -194,7 +196,7 @@ $$\begin{align}
 
 Next, we use a basic result on independent exponential random variables.
 
-**Lemma 2.**
+**Lemma 2 (Exponential race: the minimum is selected with probability proportional to the rates).**
 <em>
 Let $E_1,\dots,E_n$ be independent exponential random variables with $E_i \sim \mathrm{Exp}(\lambda_i)$ and $\lambda_i>0,\; i=1,\dots,n$.
 Then
@@ -297,7 +299,7 @@ and these are independent across different $y$.
 Here we briefly explain the thinning property. For a marked Poisson point process, each point is independently assigned a mark according to a given distribution. If we retain only those points whose marks fall in a set $A$, the resulting subprocess is still a Poisson process, with rate equal to the original rate multiplied by the probability of selecting that set.
 
 In the present setting, since the marks $\tilde Y_i$ are i.i.d. with distribution $p_Y$, the points with $\tilde Y_i=y$ are obtained by independently selecting each point with probability $p_Y(y)$. By the thinning property, the subprocess $\\{T_i:\tilde Y_i=y\\}$ is therefore a Poisson process with rate $p_Y(y)$.
-$blacklozenge$
+$\blacklozenge$
 
 Define
 $$\begin{align}
