@@ -129,26 +129,8 @@ f_{Y|X}(y|x)\,dy \times dt.
 **Remark 1.**
 Here we briefly explain the ingredients used above. The mapping property of Poisson point processes states that if a Poisson point process is transformed via a measurable mapping, then the resulting point process is still Poisson, with its intensity measure given by the pushforward of the original intensity measure under this mapping.
 
-In the present setting, the original marked Poisson point process $\{(\tilde Y_i, T_i)\}$ has intensity measure
-$$
-\begin{align}
-dy \times dt,
-\end{align}
-$$
-since $\tilde Y_i \sim \mathrm{Unif}[0,1]$ and the arrival times form a unit-rate Poisson process.
-
-Under the transformation
-$$
-\begin{align}
-(\tilde Y_i, T_i) \mapsto \left(\tilde Y_i,\; \frac{T_i}{f_{Y|X}(\tilde Y_i|x)}\right),
-\end{align}
-$$
-the time coordinate is rescaled by a factor depending on $\tilde Y_i$. As a result, the intensity measure is correspondingly scaled, yielding
-$$
-\begin{align}
-f_{Y|X}(y|x)\,dy \times dt.
-\end{align}
-$$
+In the present setting, the original marked Poisson point process $\{(\tilde Y_i, T_i)\}$ has intensity measure $dy \times dt$, since $\tilde Y_i \sim \mathrm{Unif}[0,1]$ and the arrival times form a unit-rate Poisson process.
+Under the transformation $(\tilde Y_i, T_i) \mapsto \left(\tilde Y_i,\; \frac{T_i}{f_{Y|X}(\tilde Y_i|x)}\right)$, the time coordinate is rescaled by a factor depending on $\tilde Y_i$. As a result, the intensity measure is correspondingly scaled, yielding $f_{Y|X}(y|x)\,dy \times dt$.
 $\blacklozenge$
 
 The original selection rule is equivalent to choosing the point with the smallest vertical coordinate in this transformed process, and outputting its horizontal coordinate.
