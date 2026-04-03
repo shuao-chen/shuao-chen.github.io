@@ -76,7 +76,7 @@ T_i \cdot
 \frac{dP_Y}{dP_{Y|X}(\cdot|x)}(\tilde Y_i).
 \end{align}$$
 
-This selection rule assigns a weight to each point $(\tilde Y_i,T_i)$, where the weight is given by the likelihood ratio $\frac{dP_Y}{dP_{Y \mid X}}(\tilde Y_i \mid x)$, thereby introducing a non-uniform scaling in the time coordinate depending on $x$.
+This selection rule assigns a weight to each point $(\tilde Y_i,T_i)$, where the weight is given by the likelihood ratio $\frac{dP_Y}{dP_{Y \mid X}}(\tilde Y_i \mid x)$, thereby introducing a non-uniform scaling in the time coordinate depending on the realization $x$.
 
 Based on this index, define the mapping
 $$\begin{align}
@@ -88,6 +88,8 @@ and finally construct the output random variable
 $$\begin{align}
 Y = g_{X\to Y}(X,Z).
 \end{align}$$
+
+In summary, $Y$ is obtained by selecting the mark $\tilde Y_i$ corresponding to the point that minimizes the scaled time $T_i \cdot \frac{dP_Y}{dP_{Y|X}}(\tilde Y_i \mid X)$, i.e., the first arrival after a likelihood-ratio-based rescaling of the time axis.
 
 ### Continuous Case: Intuition via Uniform Distribution
 
