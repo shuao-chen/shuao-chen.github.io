@@ -344,19 +344,7 @@ Although the pseudo-determinant is not multiplicative in general, a multiplicati
 
 #### Invertible case
 
-If both $A$ and $B$ are invertible, then there are no zero eigenvalues, and the pseudo-determinant reduces to the ordinary determinant:
-$$
-\begin{align}
-\det^+(A)=\det(A), \quad \det^+(B)=\det(B).
-\end{align}
-$$
-Therefore, multiplicativity follows immediately from that of the determinant:
-$$
-\begin{align}
-\det^+(AB)=\det(AB)=\det(A)\det(B)=\det^+(A)\det^+(B).
-\end{align}
-$$
-In this case, no information is discarded, and the pseudo-determinant coincides with a fully multiplicative functional.
+If both $A$ and $B$ are invertible, then there are no zero eigenvalues, and the pseudo-determinant coincides with the ordinary determinant. In this case, multiplicativity follows directly from that of the determinant, since no spectral information is discarded.
 
 #### Aligned support (common invariant subspace)
 
@@ -410,3 +398,7 @@ The determinant $\det(\cdot)$ defines a multiplicative functional on the full ma
 In contrast, the pseudo-determinant $\det^+(\cdot)$ captures only the nonzero spectral component of a matrix and therefore depends on an implicit choice of effective subspace. Since this subspace is not preserved under matrix multiplication in general, the pseudo-determinant fails to be multiplicative.
 
 A multiplicative relation can be recovered only when no information is lost (invertible case) or when the effective subspaces of the matrices are aligned and invariant under both operators. Outside of such restrictive settings, the pseudo-determinant is inherently non-multiplicative, and its value for a product $AB$ depends on the relative geometric configuration of the spectral subspaces of $A$ and $B$, rather than solely on their individual nonzero eigenvalues.
+
+At present, to the best of the author's knowledge, a complete characterization of the pseudo-determinant under matrix multiplication remains open. In particular, beyond the known cases of invertibility or aligned invariant subspaces, it is unclear whether there exist more general structural conditions that yield multiplicative or even approximately multiplicative behavior.
+
+It is also unclear what the sharpest possible bounds or canonical forms for $\det^+(AB)$ in terms of $\det^+(A)$ and $\det^+(B)$ should be. While certain special classes of matrices may admit more refined relations, it remains an open question whether a unified theory describing such phenomena exists. These questions are left for future, more detailed investigation.
