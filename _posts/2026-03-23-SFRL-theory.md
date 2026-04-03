@@ -228,14 +228,11 @@ $$
 \int_0^\infty
 \lambda_i e^{-\left(\sum_{j=1}^n \lambda_j\right)t}\,dt \\
 &=
-\lambda_i \int_0^\infty
-e^{-\left(\sum_{j=1}^n \lambda_j\right)t}\,dt \\
-&=
 \frac{\lambda_i}{\sum_{j=1}^n \lambda_j}.
 \end{align}
 $$
 
-The first equality uses the continuity of exponential random variables, so ties occur with probability zero. The second step conditions on the value of $E_i$ and applies the law of total probability. The third step uses the independence of $\{E_j\}$ to factorize the joint probability. The fourth step follows from the survival function and density of the exponential distribution. The fifth step combines the exponential terms, and the last step evaluates the resulting integral using $\int_0^\infty e^{-at}dt=1/a$.
+The first step uses the continuity of exponential random variables, so ties occur with probability zero. The second step conditions on the value of $E_i$ and applies the law of total probability. The third step uses the independence of $\{E_j\}$ to factorize the joint probability. For the fourth step, since $E_j \sim \mathrm{Exp}(\lambda_j)$, its density is $f_{E_j}(t)=\lambda_j e^{-\lambda_j t}$ for $t\ge 0$, and hence $\mathbb P(E_j > t) = \int_t^\infty \lambda_j e^{-\lambda_j s}\,ds = e^{-\lambda_j t}$. The fifth step combines the exponential terms, and the last step evaluates the resulting integral using $\int_0^\infty e^{-at}dt=1/a$.
 $\blacksquare$
 
 Applying this to $\tau_A$ and $\tau_{A^c}$, we obtain
