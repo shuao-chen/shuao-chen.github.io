@@ -174,8 +174,9 @@ $$
 \det(A)\det(B)=\det(AB).
 \end{align}
 $$
+$\blacksquare$
 
-For clarity, the argument can be summarized as
+For clarity, the above argument can be summarized as follows:
 $$
 \begin{align}
 \det(A)\det(B)
@@ -200,7 +201,7 @@ $$
 \end{align}
 $$
 
-This note is based on:
+This section is based on:
 - A block-matrix proof of $\det(AB)=\det(A)\det(B)$, [Zhihu note.](https://zhuanlan.zhihu.com/p/297827171)
 
 ### Pseudo-determinant and failure of multiplicativity
@@ -221,16 +222,16 @@ $$
 \det^+(A)=\prod_{i=1}^{r}\lambda_i,
 \end{align}
 $$
-where $\{\lambda_i\}_{i=1}^r$ are the nonzero eigenvalues.
+where $\\{\lambda_i\\}_{i=1}^r$ denote the nonzero eigenvalues of \(A\), arranged in nondecreasing order.
 </em>
 
-In general, the pseudo-determinant does not satisfy a multiplicative property, i.e.,
+In general, a key point of this note is to emphasize that the pseudo-determinant does not satisfy a multiplicative property, i.e.,
 $$
 \begin{align}
-\det^+(AB) \neq \det^+(A)\det^+(B)
+\det^+(AB) \neq \det^+(A)\det^+(B).
 \end{align}
 $$
-in general. This can be seen from the following counterexamples.
+This can be seen from the following counterexamples.
 
 #### Counterexample 1 (both matrices rank-deficient)
 
@@ -250,7 +251,7 @@ B=
 \end{align}
 $$
 
-Both matrices have eigenvalues $\{1,0\}$, hence
+Both matrices have eigenvalues $\\{1,0\\}$, hence
 $$
 \begin{align}
 \det^+(A)=1, \quad \det^+(B)=1.
@@ -267,7 +268,7 @@ AB=
 \end{pmatrix},
 \end{align}
 $$
-which has nonzero eigenvalue $2$, and thus
+which has nonzero eigenvalue $\\{2\\}$, and thus
 $$
 \begin{align}
 \det^+(AB)=2.
