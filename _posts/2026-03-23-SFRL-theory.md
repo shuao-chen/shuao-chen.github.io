@@ -196,38 +196,51 @@ Next, we use a basic result on independent exponential random variables.
 
 **Lemma 2.**
 <em>
-Let $T_1,\dots,T_n$ be independent exponential random variables with $T_i \sim \text{Exp}(\lambda_i)$ and $\lambda_i>0,\; i=1,\dots,n$.
+Let $E_1,\dots,E_n$ be independent exponential random variables with $E_i \sim \mathrm{Exp}(\lambda_i)$ and $\lambda_i>0,\; i=1,\dots,n$.
 Then
-$$\begin{align}
-\mathbb P\big(T_i = \min_{1\le j\le n} T_j\big)
+$$
+\begin{align}
+\mathbb P\big(E_i = \min_{1\le j\le n} E_j\big)
 =
 \frac{\lambda_i}{\sum_{j=1}^n \lambda_j}.
-\end{align}$$
+\end{align}
+$$
 </em>
 
 **Proof.**
 For any fixed $i$, we have
-$$\begin{align}
-\mathbb P\big(T_i = \min_{1\le j\le n} T_j\big)
-=
-\mathbb P\big(T_i < T_j,\ \forall j\ne i\big).
-\end{align}$$
-By independence,
-$$\begin{align}
-\mathbb P\big(T_i < T_j,\ \forall j\ne i\big)
+$$
+\begin{align}
+\mathbb P\big(E_i = \min_{1\le j\le n} E_j\big)
+&=
+\mathbb P\big(E_i < E_j,\ \forall j\ne i\big)
+&&\text{(continuity of exponential variables, so ties have probability zero)}\\
 &=
 \int_0^\infty
-\mathbb P\big(T_j > t,\ \forall j\ne i\big)\, f_{T_i}(t)\,dt \\
+\mathbb P\big(E_j > t,\ \forall j\ne i\big)\, f_{E_i}(t)\,dt
+&&\text{(conditioning on the value of $E_i=t$)}\\
+&=
+\int_0^\infty
+\prod_{j\ne i} \mathbb P(E_j > t)\, f_{E_i}(t)\,dt
+&&\text{(independence of $\{E_j\}$)}\\
 &=
 \int_0^\infty
 \prod_{j\ne i} e^{-\lambda_j t}\;
-\lambda_i e^{-\lambda_i t}\,dt \\
+\lambda_i e^{-\lambda_i t}\,dt
+&&\text{(survival function and density of $\mathrm{Exp}(\lambda)$)}\\
+&=
+\int_0^\infty
+\lambda_i e^{-\left(\sum_{j=1}^n \lambda_j\right)t}\,dt
+&&\text{(combine exponentials using $e^{a}e^{b}=e^{a+b}$)}\\
 &=
 \lambda_i \int_0^\infty
-e^{-\left(\sum_{j=1}^n \lambda_j\right)t}\,dt \\
+e^{-\left(\sum_{j=1}^n \lambda_j\right)t}\,dt
+&&\text{(factor out $\lambda_i$)}\\
 &=
-\frac{\lambda_i}{\sum_{j=1}^n \lambda_j}.
-\end{align}$$
+\frac{\lambda_i}{\sum_{j=1}^n \lambda_j}
+&&\text{(using $\int_0^\infty e^{-at}dt = 1/a$)}.
+\end{align}
+$$
 $\blacksquare$
 
 Applying this to $\tau_A$ and $\tau_{A^c}$, we obtain
