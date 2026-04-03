@@ -321,28 +321,22 @@ $$
 
 The ordinary determinant and the pseudo-determinant encode fundamentally different geometric objects.
 
-For a square matrix $A \in \mathbb{C}^{n\times n}$, the determinant $\det(A)$ describes the signed volume scaling of the linear map induced by $A$ on the entire ambient space $\mathbb{C}^n$. Since matrix multiplication corresponds to composition of linear maps, and volume scaling is multiplicative under composition, one obtains the identity
+For a square matrix $A \in \mathbb{C}^{n\times n}$, the determinant $\det(A)$ describes the signed volume scaling of the linear map induced by $A$ on the entire ambient space $\mathbb{C}^n$. Since **matrix multiplication corresponds to composition of linear maps**, and volume scaling is multiplicative under composition, one obtains the identity
 $$
 \begin{align}
 \det(AB)=\det(A)\det(B).
 \end{align}
 $$
 
-The pseudo-determinant $\det^+(A)$ is of a different nature. When $A$ is singular, it does not describe the action of $A$ on the whole space, since part of the space is annihilated. Instead, it only records the product of the nonzero eigenvalues, that is, the multiplicative effect of $A$ on the spectral component associated with its nonzero spectrum.
+The pseudo-determinant $\det^+(A)$ is of a different nature. When $A$ is singular, it **does not** describe the action of $A$ on the whole space, but only records the product of its nonzero eigenvalues, i.e., the multiplicative effect on its **effective subspace**.
 
-The essential difficulty is that this effective subspace is not fixed under multiplication. More precisely, the subspace on which $A$ acts nontrivially need not coincide with the corresponding subspace for $B$, nor with that for $AB$. Thus, although $\det^+(A)$ and $\det^+(B)$ each describe a partial spectral effect of the individual matrices, these two effects are generally associated with different subspaces, and therefore cannot be combined multiplicatively in any canonical way.
+The key difficulty is that this **effective subspace is not fixed** under multiplication. In general, the subspace on which $A$ acts nontrivially **need not** coincide with that of $B$, **nor** with that of $AB$. As a result, $\det^+(A)$ and $\det^+(B)$ describe spectral effects on different subspaces and cannot be combined multiplicatively.
 
-This can also be seen from the spectral viewpoint. The eigenvalues of a product $AB$ are not determined by the eigenvalues of $A$ and $B$ separately, unless strong additional assumptions are imposed, such as simultaneous diagonalizability on a common invariant subspace. In particular, after zero eigenvalues are removed, the remaining nonzero spectrum of $AB)$ is not obtained by simply multiplying the nonzero eigenvalues of $A$ and those of $B$ term by term. Hence, the operation of “discarding the zero spectrum” is not compatible with matrix multiplication.
+From the *spectral viewpoint*, the nonzero eigenvalues of $AB$ are not obtained by multiplying those of $A$ and $B$ term by term, unless strong conditions such as simultaneous diagonalizability hold. Hence, discarding the zero spectrum is not compatible with matrix multiplication.
 
-Another way to phrase this is through rank and support. Although
-$$
-\begin{align}
-\mathrm{rank}(AB)\le \min\{\mathrm{rank}(A),\mathrm{rank}(B)\},
-\end{align}
-$$
-the failure of multiplicativity is not merely a consequence of rank reduction itself. The deeper reason is that the support of the product $AB$ is determined by the interaction between the range of $B$ and the null space of $A$. Part of the nontrivial action of $B$ may be mapped into directions that are subsequently annihilated by $A$, while new nonzero eigenvalues of $AB$ may emerge from the way these two operators are composed on the surviving subspace. Therefore, the nonzero spectral data of $AB$ depends on the relative position of the invariant, range, and null spaces of $A$ and $B$, rather than only on the separate nonzero spectra of the two matrices.
+More fundamentally, the behavior of $AB$ is governed by the **interaction between the range of $B$ and the null space of $A$**: components in the range of $B$ may be mapped into directions annihilated by $A$, so that part of the nonzero spectral effect of $B$ is lost, while the remaining action depends on how these subspaces intersect. 
 
-For this reason, unlike the ordinary determinant, the pseudo-determinant does not define a multiplicative functional on the full matrix algebra. Its value is not governed solely by the individual nonzero eigenvalues of the factors, but by how their effective spectral subspaces align under composition.
+Therefore, unlike the ordinary determinant, the pseudo-determinant is not multiplicative, since it depends not only on the nonzero spectra of the factors, but on how their effective subspaces **align** under composition.
 
 ### Cases where multiplicativity holds
 
