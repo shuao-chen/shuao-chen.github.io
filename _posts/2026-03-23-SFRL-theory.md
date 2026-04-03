@@ -423,7 +423,7 @@ q(k)=c\,k^{-\lambda},
 
 By non-negativity of relative entropy,
 \begin{align}
-D(p_K\|q) = \sum_{k=1}^\infty p_K(k)\log\frac{p_K(k)}{q(k)} \ge 0,
+D(p_K \| q) = \sum_{k=1}^\infty p_K(k)\log\frac{p_K(k)}{q(k)} \ge 0,
 \end{align}
 which implies
 \begin{align}
