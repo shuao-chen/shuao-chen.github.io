@@ -168,10 +168,14 @@ where the last equality follows from the Poisson probability mass function $\mat
 This is exactly the tail distribution of an exponential distribution with parameter $\lambda$, hence $\tau \sim \text{Exp}(\lambda).$
 $\blacksquare$
 
-Now apply this result to the current setting. For any measurable set $A\subseteq [0,1]$, let $N_A(t)$ denote the number of points in the region $A\times[0,t]$. Then
-$$\begin{align}
-N_A(t)\sim \mathrm{Poisson}\left(t\int_A f_{Y|X}(y|x)\,dy\right).
-\end{align}$$
+Now apply this result to the current setting, namely the transformed marked Poisson point process with intensity measure $f_{Y|X}(y|x)\,dy \times dt$.
+For any measurable set $A\subseteq [0,1]$, let $N_A(t)$ denote the number of points in the region $A\times[0,t]$. Then
+$$
+\begin{align}
+N_A(t)\sim \mathrm{Poisson}\left(t\int_A f_{Y|X}(y|x)\,dy\right),
+\end{align}
+$$
+since for a Poisson point process, the number of points in any measurable region follows a Poisson distribution with parameter equal to the intensity measure of that region.
 
 Define the first arrival time into the set $A$ as
 $$\begin{align}
