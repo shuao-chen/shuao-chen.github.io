@@ -255,7 +255,7 @@ In summary, this construction rescales the time coordinate depending on $x$, tra
 
 ### Discrete Case: Exponential Race Representation
 
-When $\mathcal{Y}$ is a finite set, the above Poisson construction can be equivalently represented as an exponential race form. Let $\\{Z_y\\}_{y\in\mathcal{Y}}$ be a collection of independent exponential random variables, $Z_y \sim \text{Exp}(1), \; y\in\mathcal{Y}.$
+When $\mathcal{Y}$ is a finite set, the above Poisson construction can be equivalently represented as an exponential race form. For each $y\in\mathcal{Y}$, let $Z_y$ denote an independent exponential random variable with $Z_y \sim \mathrm{Exp}(1)$, so that $\\{Z_y\\}_{y\in\mathcal{Y}}$ is a collection indexed by the possible values of $Y$. 
 Given $x$, define the selection rule
 $$\begin{align}
 Y
