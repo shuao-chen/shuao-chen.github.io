@@ -89,7 +89,7 @@ $$\begin{align}
 Y = g_{X\to Y}(X,Z).
 \end{align}$$
 
-In summary, $Y$ is obtained by selecting the mark $\tilde Y_i$ corresponding to the point that minimizes the scaled time $T_i \cdot \frac{dP_Y}{dP_{Y|X}}(\tilde Y_i \mid X)$, i.e., the first arrival after a likelihood-ratio-based rescaling of the time axis.
+In summary, $Y$ is obtained by selecting the mark $\tilde Y_i$ corresponding to the point that minimizes the scaled time $T_i \cdot \frac{dP_Y}{dP_{Y\|X}}(\tilde Y_i \mid X)$, i.e., the first arrival after a likelihood-ratio-based rescaling of the time axis.
 
 ### Continuous Case: Intuition via Uniform Distribution
 
