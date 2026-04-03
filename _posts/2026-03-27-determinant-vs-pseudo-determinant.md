@@ -163,14 +163,12 @@ $$
 \begin{align}
 \det\!\begin{pmatrix} E & B-AB\\ 0 & AB \end{pmatrix}
 =
-\det(E)\det(AB)
-=
 \det(AB),
 \end{align}
 $$
 since $\det(E)=1$.
 
-Combining the two expressions yields
+Combining the two expressions yields the desired identity
 $$
 \begin{align}
 \det(A)\det(B)=\det(AB).
