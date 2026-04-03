@@ -349,7 +349,7 @@ H(Y|Z)
 &\le H(K).
 \end{align}$$
 
-Here, the first step follows from the fact that adding random variables does not decrease joint entropy; the second step uses the chain rule of conditional entropy; the third step uses that $Y$ is a deterministic function of $(Z,K)$; and the last step follows from conditioning reducing entropy.
+Here, the first step follows from the fact that adding random variables does not decrease joint entropy. The second step uses the chain rule of conditional entropy. The third step uses that $Y$ is a deterministic function of $(Z,K)$, and the last step follows from conditioning reducing entropy.
 
 Next, we analyze the uncertainty of $K$. Recall that
 $$\begin{align}
@@ -362,6 +362,7 @@ This shows that the uncertainty of $K$ is closely related to the discrepancy bet
 $$\begin{align}
 \mathbb{E}[\log K \mid X=x] \le D\big(P_{Y|X}(\cdot|x)\,\|\,P_Y\big) + e^{-1}\log e + 1.
 \end{align}$$
+The proof is deferred to a later section.
 
 Taking expectation over $X$,
 $$\begin{align}
@@ -375,7 +376,7 @@ Finally, it remains to upper bound $H(K)$ as a function of $\mathbb{E}[\log K]$.
 
 We now state a relation between $H(K)$ and $\mathbb{E}[\log K]$.
 
-**Lemma 3.**
+**Lemma 3 (Entropy bound via the logarithmic moment).**
 <em>
 Let $K\in\\{1,2,\dots\\}$. Then
 $$\begin{align}
