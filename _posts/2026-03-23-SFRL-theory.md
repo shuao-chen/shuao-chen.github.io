@@ -162,8 +162,9 @@ Thus,
 $$\begin{align}
 \mathbb P(\tau>t)
 =\mathbb P\big(N([0,t])=0\big)
-=e^{-\lambda t}.
+= e^{-\lambda t},
 \end{align}$$
+where the last equality follows from the Poisson probability mass function $\mathbb P\big(N([0,t])=k\big) = \frac{(\lambda t)^k}{k!} e^{-\lambda t}$ by taking $k=0$.
 This is exactly the tail distribution of an exponential distribution with parameter $\lambda$, hence $\tau \sim \text{Exp}(\lambda).$
 $\blacksquare$
 
