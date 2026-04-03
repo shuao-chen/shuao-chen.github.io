@@ -263,7 +263,7 @@ Y
 \arg\min_{y\in\mathcal{Y}} \frac{Z_y}{p_{Y|X}(y|x)}.
 \end{align}$$
 
-This construction can be interpreted as a “competition” among all candidate values $y$: each $y$ is associated with a random time $Z_y$, which is scaled according to the weight $p_{Y \mid X}(y \mid x)$, and the one with the smallest scaled value is selected.
+This construction can be interpreted as a “competition” among all candidate values $y$: each $y$ is associated with a random time $Z_y$, which is scaled according to the weight $p_{Y \mid X}(y \mid x)$, and the one with the smallest scaled value is selected. In this sense, it is consistent with the general Poisson construction.
 
 Next, we explain the relationship between this discrete exponential construction and the original Poisson construction. Consider the marked Poisson point process $\\{(\tilde Y_i, T_i)\\}_{i\ge 1},$ where $\tilde Y_i \sim p_Y$, and $\\{T_i\\}$ are the arrival times of a Poisson process with rate $1$. The original selection rule is
 $$\begin{align}
@@ -292,6 +292,12 @@ $$\begin{align}
 \min_{i:\tilde Y_i=y} T_i \sim \text{Exp}\big(p_Y(y)\big),
 \end{align}$$
 and these are independent across different $y$.
+
+**Remark 2.**
+Here we briefly explain the thinning property. For a marked Poisson point process, each point is independently assigned a mark according to a given distribution. If we retain only those points whose marks fall in a set $A$, the resulting subprocess is still a Poisson process, with rate equal to the original rate multiplied by the probability of selecting that set.
+
+In the present setting, since the marks $\tilde Y_i$ are i.i.d. with distribution $p_Y$, the points with $\tilde Y_i=y$ are obtained by independently selecting each point with probability $p_Y(y)$. By the thinning property, the subprocess $\\{T_i:\tilde Y_i=y\\}$ is therefore a Poisson process with rate $p_Y(y)$.
+$blacklozenge$
 
 Define
 $$\begin{align}
