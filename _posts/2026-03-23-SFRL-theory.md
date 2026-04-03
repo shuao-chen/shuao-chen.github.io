@@ -113,7 +113,7 @@ $$\begin{align}
 Y=\tilde Y_K.
 \end{align}$$
 
-From a geometric perspective, the point set $\\{(\tilde y_i,t_i)\\}$ can be viewed as a collection of random points on $[0,1] \times \mathbb{R}\_+$, where the horizontal coordinate $\tilde y_i$ is uniformly distributed over $[0,1]$, and the vertical coordinate $t_i$ represents increasing random times. For each point $(\tilde y_i,t_i)$, we compare its vertical coordinate with the value of $f_{Y \mid X}(y \mid x)$ at the corresponding position, thereby forming a normalized ratio and selecting the point with the smallest value.
+From a geometric perspective, the point set $\\{(\tilde y_i,t_i)\\}$ can be viewed as a collection of random points on $[0,1] \times \mathbb{R}\_+$, where the horizontal coordinate $\tilde y_i$ is uniformly distributed over $[0,1]$, and the vertical coordinate $t_i$ represents increasing random times. For each point $(\tilde y_i,t_i)$, we compare its vertical coordinate $t_i$ with the value of $f_{Y \mid X}(y \mid x)$ at the corresponding position, thereby forming a normalized ratio and selecting the point with the smallest value.
 Equivalently, from a dynamic perspective, one can imagine gradually scaling up the graph of $f_{Y \mid X}(y \mid x)$; when it first touches a random point, the horizontal coordinate of that point is taken as the output.
 
 Next, we show that this construction indeed generates the desired conditional distribution. Fix any $x$, and consider the above marked Poisson point process. Apply the transformation
@@ -125,6 +125,31 @@ By the mapping property of Poisson point processes, the transformed process is s
 $$\begin{align}
 f_{Y|X}(y|x)\,dy \times dt.
 \end{align}$$
+
+**Remark 1.**
+Here we briefly explain the ingredients used above. The mapping property of Poisson point processes states that if a Poisson point process is transformed via a measurable mapping, then the resulting point process is still Poisson, with its intensity measure given by the pushforward of the original intensity measure under this mapping.
+
+In the present setting, the original marked Poisson point process $\{(\tilde Y_i, T_i)\}$ has intensity measure
+$$
+\begin{align}
+dy \times dt,
+\end{align}
+$$
+since $\tilde Y_i \sim \mathrm{Unif}[0,1]$ and the arrival times form a unit-rate Poisson process.
+
+Under the transformation
+$$
+\begin{align}
+(\tilde Y_i, T_i) \mapsto \left(\tilde Y_i,\; \frac{T_i}{f_{Y|X}(\tilde Y_i|x)}\right),
+\end{align}
+$$
+the time coordinate is rescaled by a factor depending on $\tilde Y_i$. As a result, the intensity measure is correspondingly scaled, yielding
+$$
+\begin{align}
+f_{Y|X}(y|x)\,dy \times dt.
+\end{align}
+$$
+$\blacklozenge$
 
 The original selection rule is equivalent to choosing the point with the smallest vertical coordinate in this transformed process, and outputting its horizontal coordinate.
 
