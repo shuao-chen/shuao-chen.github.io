@@ -13,7 +13,7 @@ In information theory, a fundamental problem is how to characterize the correlat
 In other words, whether $Y$ can be represented as a deterministic function of $X$ and some independent randomness, while controlling the information redundancy introduced by this randomness.
 The Strong Functional Representation Lemma (SFRL) provides a quantitative answer to this problem: it not only guarantees the existence of such a representation, but also further characterizes the information complexity of the required random variable $Z$.
 
-**Theorem (Strong Functional Representation Lemma, SFRL).**
+**Theorem 1 (Strong Functional Representation Lemma, SFRL).**
 <em>
 For any pair of random variables $(X,Y)\sim P_{XY}$, there exists a random variable $Z$ such that
 $$\begin{align}
@@ -122,7 +122,7 @@ The original selection rule is equivalent to choosing the point with the smalles
 
 For later analysis, we first state a basic result.
 
-**Lemma.**
+**Lemma 1.**
 <em>
 Let $\Pi$ be a Poisson process on $\mathbb R_+$ with rate $\lambda$, and denote its first arrival time by
 $$\begin{align}
@@ -178,7 +178,7 @@ $$\begin{align}
 
 Next, we use a basic result on independent exponential random variables.
 
-**Lemma.**
+**Lemma 2.**
 <em>
 Let $T_1,\dots,T_n$ be independent exponential random variables with
 $$\begin{align}
@@ -353,7 +353,7 @@ Finally, it remains to upper bound $H(K)$ as a function of $\mathbb{E}[\log K]$.
 
 We now state a relation between $H(K)$ and $\mathbb{E}[\log K]$.
 
-**Lemma.**
+**Lemma 3.**
 <em>
 Let $K\in\\{1,2,\dots\\}$. Then
 $$\begin{align}
@@ -470,7 +470,7 @@ $$\begin{align}
 
 We now state a basic result characterizing this structure.
 
-**Lemma.**
+**Lemma 4.**
 <em>
 Let $\Pi$ be a Poisson point process on $\mathcal Y\times\mathbb R_+$ with intensity measure $\nu(dy,dt)=P(dy)\,dt,$ where $P$ is a probability measure. Let $T_i$ denote the time coordinates and $Y_i$ the corresponding marks, and define
 $$\begin{align}
@@ -518,8 +518,8 @@ For convenience of analysis, fix $X=x$, and consider the corresponding random va
 
 We first state a basic property of Poisson point processes.
 
-**Lemma.**
-<em>[Independent Restriction Property of Poisson Point Processes]
+**Lemma 5 (Independent Restriction Property of Poisson Point Processes).**
+<em>
 Let $\Pi$ be a Poisson point process defined on a space $\mathcal S$ with intensity measure $\nu$. For any measurable set $C\subset \mathcal S$, conditioned on $\Pi\cap C$, the remaining point set $\Pi\cap C^c$ is still a Poisson point process with intensity measure equal to the restriction of $\nu$ to $C^c$, and is independent of $\Pi\cap C$.
 </em>
 
@@ -728,7 +728,7 @@ D(P_{Y|X}(\cdot|x)\|P_Y)
 
 We now give a bound on the negative part of the log-likelihood ratio.
 
-**Lemma.**
+**Lemma 6.**
 <em>
 \begin{align}
 \mathbb E_{Y\sim P_{Y|X}(\cdot|x)}\left[\min\left\\{\log \frac{dP_{Y|X}}{dP_Y}(Y|x),\,0\right\\}\right]\le e^{-1}\log e.
