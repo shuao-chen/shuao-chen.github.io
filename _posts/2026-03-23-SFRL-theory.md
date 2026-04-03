@@ -27,24 +27,30 @@ If $X,Y$ are discrete random variables with cardinalities $|\mathcal X|,|\mathca
 $$\begin{align}
 |\mathcal Z| \le |\mathcal X|(|\mathcal Y|-1)+2.
 \end{align}$$
-Moreover, by the chain rule of mutual information,
-$$\begin{align}
+Moreover, it follows that
+$$
+\begin{align}
+H(Y|Z) \le I(X;Y) + \log\big(I(X;Y)+1\big) + 4.
+\end{align}
+$$
+</em>
+
+The above entropy bound is a consequence of the chain rule of mutual information. Indeed,
+$$
+\begin{align}
 I(X;Y,Z) = I(X;Y) + I(X;Z|Y),
-\end{align}$$
-and
-$$\begin{align}
+\end{align}
+$$
+while
+$$
+\begin{align}
 I(X;Y,Z)
 &= I(X;Z) + I(X;Y|Z) \\
 &= I(X;Y|Z) \\
 &= H(Y|Z),
-\end{align}$$
-where the second step uses $Z \perp X$, and the third step uses $Y=g(X,Z)$.
-Therefore,
-$$\begin{align}
-H(Y|Z) \le I(X;Y) + \log\big(I(X;Y)+1\big) + 4.
-\end{align}$$
-This inequality shows that there exists a random variable $Z$ independent of $X$ such that the gap between the conditional entropy $H(Y|Z)$ and the mutual information $I(X;Y)$ is at most a logarithmic-order term.
-</em>
+\end{align}
+$$
+where the second step uses $Z \perp X$, and the third step uses $Y=g(X,Z)$. Combining these identities with the bound on $I(X;Z|Y)$ yields the stated inequality. This result shows that there exists a random variable $Z$ independent of $X$ such that the gap between $H(Y|Z)$ and $I(X;Y)$ is at most logarithmic in $I(X;Y)$.
 
 ### Poisson Functional Representation
 
