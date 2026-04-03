@@ -139,7 +139,7 @@ For later analysis, we first state a basic result.
 
 **Lemma 1.**
 <em>
-Let $\Pi$ be a Poisson process on $\mathbb R_+$ with rate $\lambda$, and denote its first arrival time by
+Let $\Pi$ be a Poisson process on $\mathbb R_+$ with rate $\lambda$, and let $N(A)$ denote the number of points of $\Pi$ falling in a measurable set $A \subset \mathbb R_+$. In particular, $N([0,t])$ is the number of arrivals up to time $t$. Denote the first arrival time by
 $$\begin{align}
 \tau := \inf\{t\ge 0 : N([0,t])\ge 1\}.
 \end{align}$$
