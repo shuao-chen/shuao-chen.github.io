@@ -9,9 +9,8 @@ published: true
 
 ### Strong Functional Representation Lemma
 
-In information theory, a fundamental problem is how to characterize the correlation structure between $(X,Y)$ using a random variable $Z$ that is independent of the input $X$.
-In other words, whether $Y$ can be represented as a deterministic function of $X$ and some independent randomness, while controlling the information redundancy introduced by this randomness.
-The Strong Functional Representation Lemma (SFRL) provides a quantitative answer to this problem: it not only guarantees the existence of such a representation, but also further characterizes the information complexity of the required random variable $Z$.
+In information theory, a fundamental problem is to represent the dependence between $(X,Y)$ using an auxiliary random variable $Z$ that is independent of $X$. Specifically, one seeks to express $Y$ as a deterministic function of $X$ and $Z$, while controlling the amount of additional information introduced by $Z$.
+The Strong Functional Representation Lemma (SFRL) provides a quantitative answer to this problem: it guarantees the existence of such a representation and, moreover, bounds the information complexity of the auxiliary variable $Z$.
 
 **Theorem 1 (Strong Functional Representation Lemma, SFRL).**
 <em>
