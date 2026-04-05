@@ -780,7 +780,7 @@ Let $L(y)=\frac{dP_{Y|X}}{dP_Y}(y|x)$ denote the likelihood ratio. Then
 </em>
 
 **Proof.**
-Let $L(y):=\frac{dP_{Y|X}}{dP_Y}(y|x).$ Then $-\min\{\log L(Y),0\} = (-\log L(Y))\,\mathbf 1\{L(Y)<1\}.$
+Note that $-\min\\{\log L(Y),0\\} = (-\log L(Y))\,\mathbf 1\\{L(Y)<1\\}.$
 Thus,
 $$\begin{align}
 -\mathbb E
