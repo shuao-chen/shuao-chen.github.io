@@ -846,7 +846,7 @@ $$\begin{align}
 g_z:\mathcal X\to \mathcal Y,\qquad g_z(x):=g(x,z).
 \end{align}$$
 
-If two different $z$ induce the same $g_z$, then they play identical roles in generating $Y$, and can be merged. Hence, without loss of generality, we may assume that different $z$ correspond to distinct functions $g_z$. Since the number of functions from $\mathcal X$ to $\mathcal Y$ is at most $\mid\mathcal Y\mid^{\mid\mathcal X\mid}$, we may assume that $\|\mathcal Z\|$ is finite.
+If two different $z$ induce the same $g_z$, then they play identical roles in generating $Y$, and can be merged. Hence, without loss of generality, we may assume that different $z$ correspond to distinct functions $g_z$. Since the number of functions from $\mathcal X$ to $\mathcal Y$ is at most $|\mathcal Y|^{\mid\mathcal X\mid}$, we may assume that $\|\mathcal Z\|$ is finite.
 
 Next, we further reduce the cardinality of $\mathcal Z$. For each $z\in\mathcal Z$, define the vector
 $$\begin{align}
