@@ -183,7 +183,7 @@ $$\begin{align}
 \tau_{A^c} \sim \text{Exp}\left(\int_{A^c} f_{Y|X}(y|x)\,dy\right),
 \end{align}$$
 and the two are independent.
-By construction, $Y$ is defined as the mark associated with the earliest point in the transformed process. Therefore, the event $\\{Y \in A\\}$ is equivalent to the event that the first arrival occurs in $A$, i.e.,
+By construction, $Y$ is defined as the mark of the earliest point in the transformed process. Since every point belongs either to $A$ or to $A^c$, the earliest point lies in $A$ if and only if the first arrival in $A$ occurs before that in $A^c$. Therefore,
 $$\begin{align}
 \{Y\in A\} = \{\tau_A < \tau_{A^c}\}.
 \end{align}$$
