@@ -16,21 +16,22 @@ The Strong Functional Representation Lemma (SFRL) provides a quantitative answer
 <em>
 For any pair of random variables $(X,Y)\sim P_{XY}$, there exists a random variable $Z$ such that
 $$\begin{align}
-Z \perp X,\qquad Y = g(X,Z)
+Z &\perp X, \\
+Y &= g(X,Z)
 \end{align}$$
 for some deterministic function $g$, and satisfying
 $$\begin{align}
 I(X;Z|Y) \le \log\big(I(X;Y)+1\big) + 4.
 \end{align}$$
-If $X,Y$ are discrete random variables with cardinalities $|\mathcal X|,|\mathcal Y|$, then one can further restrict
-$$\begin{align}
-|\mathcal Z| \le |\mathcal X|(|\mathcal Y|-1)+2.
-\end{align}$$
-Moreover, it follows that
+It follows that
 $$
 \begin{align}
 H(Y|Z) \le I(X;Y) + \log\big(I(X;Y)+1\big) + 4.
 \end{align}
+Moreover, if $X,Y$ are discrete random variables with cardinalities $|\mathcal X|,|\mathcal Y|$, then one can further restrict
+$$\begin{align}
+|\mathcal Z| \le |\mathcal X|(|\mathcal Y|-1)+2.
+\end{align}$$
 $$
 </em>
 
@@ -49,13 +50,13 @@ I(X;Y,Z)
 &= H(Y|Z),
 \end{align}
 $$
-where the second step uses $Z \perp X$, and the third step uses $Y=g(X,Z)$. Combining these identities with the bound on $I(X;Z|Y)$ yields the stated inequality. This result shows that there exists a random variable $Z$ independent of $X$ such that the gap between $H(Y|Z)$ and $I(X;Y)$ is at most logarithmic in $I(X;Y)$.
+where the second step uses $Z \perp X$, and the third step uses $Y=g(X,Z)$. Combining these identities with the bound on $I(X;Z|Y)$ yields the stated entropy bound. This result shows that there exists a random variable $Z$ independent of $X$ such that the gap between $H(Y|Z)$ and $I(X;Y)$ is at most logarithmic in $I(X;Y)$.
 
 ### Poisson Functional Representation
 
 Next, we present the key construction that realizes the lemma, namely the so-called Poisson functional representation. Consider a marked Poisson point process defined on $\mathcal Y\times \mathbb R_+$:
 $$\begin{align}
-Z = \{(\tilde Y_i, T_i)\}_{i\ge 1},
+Z := \{(\tilde Y_i, T_i)\}_{i\ge 1},
 \end{align}$$
 where the marks $\tilde Y_i$ and the time coordinates $T_i$ are independent, and satisfy
 $$\begin{align}
@@ -69,7 +70,7 @@ Thus, $\\{T_i\\}$ forms a Poisson process with rate $1$, where the “rate” re
 Given $x\in\mathcal X$ and the entire point set $Z$, define the index
 $$\begin{align}
 k_{X\to Y}(x,Z)
-=
+:=
 \arg\min_i \;
 T_i \cdot
 \frac{dP_Y}{dP_{Y|X}(\cdot|x)}(\tilde Y_i).
@@ -80,12 +81,12 @@ This selection rule assigns a weight to each point $(\tilde Y_i,T_i)$, where the
 Based on this index, define the mapping
 $$\begin{align}
 g_{X\to Y}(x,Z)
-=
+:=
 \tilde Y_{\,k_{X\to Y}(x,Z)},
 \end{align}$$
 and finally construct the output random variable
 $$\begin{align}
-Y = g_{X\to Y}(X,Z).
+Y := g_{X\to Y}(X,Z).
 \end{align}$$
 
 In summary, $Y$ is obtained by selecting the mark $\tilde Y_i$ corresponding to the point that minimizes the scaled time $T_i \cdot \frac{dP_Y}{dP_{Y\|X}}(\tilde Y_i \mid X)$, i.e., the first arrival after a likelihood-ratio-based rescaling of the time axis.
