@@ -770,10 +770,12 @@ D(P_{Y|X}(\cdot|x)\|P_Y)
 
 We now give a bound on the negative part of the log-likelihood ratio.
 
-**Lemma 6.**
+**Lemma 6 (A bound on the negative logarithmic moment of a likelihood ratio).**
 <em>
+Let $L(y)=\frac{dP_{Y|X}}{dP_Y}(y|x)$ denote the likelihood ratio. Then
 \begin{align}
-\mathbb E_{Y\sim P_{Y|X}(\cdot|x)}\left[\min\left\\{\log \frac{dP_{Y|X}}{dP_Y}(Y|x),\,0\right\\}\right]\le e^{-1}\log e.
+\mathbb E_{Y\sim P_{Y|X}(\cdot|x)}\left[\min\left\\{\log L(Y),\,0\right\\}\right]
+\le e^{-1}\log e.
 \end{align}
 </em>
 
