@@ -713,7 +713,7 @@ $$\begin{align}
 \right].
 \end{align}$$
 
-Using the inequality $\log(1+u)\le \max\{\log u,0\}+1,\; u\ge 0,$ we obtain
+Using the inequality $\log(1+u)\le \max\\{\log u,0\\}+1$ with $u\ge 0,$ we obtain
 $$\begin{align}
 \mathbb E[\log K\mid X=x]
 \le
