@@ -558,8 +558,10 @@ We first state a basic property of Poisson point processes.
 
 **Lemma 5 (Independent Restriction Property of Poisson Point Processes).**
 <em>
-Let $\Pi$ be a Poisson point process defined on a space $\mathcal S$ with intensity measure $\nu$. For any measurable set $C\subset \mathcal S$, conditioned on $\Pi\cap C$, the remaining point set $\Pi\cap C^c$ is still a Poisson point process with intensity measure equal to the restriction of $\nu$ to $C^c$, and is independent of $\Pi\cap C$.
+Let $\Pi$ be a Poisson point process on a space $\mathcal S$ with intensity measure $\nu$. For any measurable set $C\subset \mathcal S$, the restricted point processes $\Pi\cap C$ and $\Pi\cap C^c$ are independent Poisson point processes with intensity measures given by the restrictions of $\nu$ to $C$ and $C^c$, respectively.
 </em>
+
+This lemma states that a Poisson point process can be decomposed into independent subprocesses by restricting it to disjoint regions. In particular, the points falling in $C$ and those falling in $C^c$ behave as two independent Poisson point processes, each governed by the corresponding restricted intensity measure.
 
 In the current problem, the transformed point process has intensity measure $\nu'(dy,dt)=P_{Y|X}(dy|x)\,dt.$ Denote the earliest arrival time and corresponding mark as
 $$\begin{align}
@@ -638,7 +640,9 @@ $$\begin{align}
 Therefore, conditioned on $\Theta=\theta$ and $Y=\tilde y$,
 $$\begin{align}
 K-1 \sim \mathrm{Poisson}(\lambda),
-\qquad
+\end{align}$$
+and
+$$\begin{align}
 \lambda \le \theta\cdot \frac{dP_{Y|X}}{dP_Y}(\tilde y|x).
 \end{align}$$
 
