@@ -55,7 +55,7 @@ where the second step uses $Z \perp X$, and the third step uses $Y=g(X,Z)$. Comb
 
 Next, we present the key construction that realizes the lemma, namely the so-called Poisson functional representation. Consider a marked Poisson point process defined on $\mathcal Y\times \mathbb R_+$:
 $$\begin{align}
-Z := \{(\tilde Y_i, T_i)\}_{i\ge 1},
+Z := \{(\tilde Y_i, T_i)\}_{i=1,2,\dots},
 \end{align}$$
 where the marks $\tilde Y_i$ and the time coordinates $T_i$ are independent, and satisfy
 $$\begin{align}
@@ -98,7 +98,7 @@ $$\begin{align}
 &Y\,|\,\{X=x\} \sim f_{Y|X}(y|x).
 \end{align}$$
 
-In this case, the marked point process in the Poisson functional representation is $Z=\\{(\tilde Y_i,T_i)\\}\_{i=1,2,\dots},$ where $\tilde Y_i \overset{\text{i.i.d.}}{\sim} \mathrm{Unif}[0,1]$, and $\\{T_i\\}$ are the arrival times of a Poisson process with rate $1$, i.e., $T_i-T_{i-1}\overset{\text{i.i.d.}}{\sim} \text{Exp}(1)$ with $T_0=0$.
+In this case, the marked point process in the Poisson functional representation is $Z=\\{(\tilde Y_i,T_i)\\}\_{i\ge 1},$ where $\tilde Y_i \overset{\text{i.i.d.}}{\sim} \mathrm{Unif}[0,1]$, and $\\{T_i\\}$ are the arrival times of a Poisson process with rate $1$, i.e., $T_i-T_{i-1}\overset{\text{i.i.d.}}{\sim} \text{Exp}(1)$ with $T_0=0$.
 
 Since the unconditional distribution is $Y \sim \mathrm{Unif}[0,1]$, we have $p_Y(y)=1$ for $y\in[0,1]$. For a given $x$, the general construction simplifies to
 $$\begin{align}
@@ -111,7 +111,7 @@ $$\begin{align}
 Y=\tilde Y_K.
 \end{align}$$
 
-From a geometric perspective, the point set $\\{(\tilde y_i,t_i)\\}$ can be viewed as a collection of random points on $[0,1] \times \mathbb{R}\_+$, where the horizontal coordinate $\tilde y_i$ is uniformly distributed over $[0,1]$, and the vertical coordinate $t_i$ represents increasing random times. For each point $(\tilde y_i,t_i)$, we compare its vertical coordinate $t_i$ with the value of $f_{Y \mid X}(y \mid x)$ at the corresponding position, thereby forming a normalized ratio and selecting the point with the smallest value.
+From a geometric perspective, the point set $\\{(\tilde y_i,t_i)\\}\_{i\ge 1}$ can be viewed as a collection of random points on $[0,1] \times \mathbb{R}\_+$, where the horizontal coordinate $\tilde y_i$ is uniformly distributed over $[0,1]$, and the vertical coordinate $t_i$ represents increasing random times. For each point $(\tilde y_i,t_i)$, we compare its vertical coordinate $t_i$ with the value of $f_{Y \mid X}(y \mid x)$ at the corresponding position, thereby forming a normalized ratio and selecting the point with the smallest value.
 Equivalently, from a dynamic perspective, one can imagine gradually scaling up the graph of $f_{Y \mid X}(y \mid x)$; when it first touches a random point, the horizontal coordinate of that point is taken as the output.
 
 Next, we show that this construction indeed generates the desired conditional distribution. Fix any $x$, and consider the above marked Poisson point process. Apply the transformation
