@@ -516,50 +516,23 @@ $$\begin{align}
 **Proof.**
 Since the intensity measure has the product form $P(dy)\,dt$, the point process can be equivalently represented as follows: generate a Poisson process $\\{T_i\\}$ with rate $1$ on the time axis, and independently generate marks $Y_i\sim P$ at each time point, independent of the time.
 
-Thus, the index $K=\arg\min_i T_i$ depends only on the time sequence, and is therefore independent of the mark sequence $\\{Y_i\\}$. For any measurable set $A$, we have
-$$\begin{align}
-    \mathbb P(Y\in A\mid K=k)=P(A).
-\end{align}$$
-
-Marginalizing over $K$ yields
-$$\begin{align}
-    \mathbb P(Y\in A)=P(A),
-\end{align}$$
-hence $Y\sim P$.
+Thus, the index $K=\arg\min_i T_i$ depends only on the time sequence, and is therefore independent of the mark sequence $\\{Y_i\\}$. In particular, for any measurable set $A$ and any $k$,
+$$
+\begin{align}
+\mathbb P(Y\in A\mid K=k)=\mathbb P(Y_k\in A)=P(A).
+\end{align}
+$$
+Averaging over $K$ gives
+$$
+\begin{align}
+\mathbb P(Y\in A)=P(A),
+\end{align}
+$$
+and hence $Y\sim P$.
 $\blacksquare$
 
 **Remark 4.**
-Lemma 4 can be viewed as a marked extension of Lemma 1. Lemma 1 concerns only the temporal component of a Poisson process, and shows that the first arrival time is exponentially distributed. Thus, it answers the question of when the earliest point occurs.
-
-Lemma 4 considers a Poisson point process on $\mathcal Y \times \mathbb R_+$ with intensity
-$$
-\begin{align}
-\nu(dy,dt)=P(dy)\,dt.
-\end{align}
-$$
-This product form means that the time coordinates form a unit-rate Poisson process on $\mathbb R_+$, and that each arrival point is independently assigned a mark according to $P$. Hence, if
-$$
-\begin{align}
-K=\arg\min_i T_i,
-\end{align}
-$$
-then the index $K$ is determined entirely by the time variables, while the marks $\{Y_i\}$ are independent of this choice.
-
-As a result, selecting the index $K$ does not bias the mark distribution: for every measurable set $A$,
-$$
-\begin{align}
-\mathbb P(Y_K\in A\mid K=k)=P(A),
-\end{align}
-$$
-since $Y_k\sim P$ for every $k$. Averaging over $K$ then gives
-$$
-\begin{align}
-\mathbb P(Y_K\in A)=P(A).
-\end{align}
-$$
-Therefore, the mark attached to the first arrival still has distribution $P$.
-
-In this sense, Lemma 1 identifies the distribution of the first arrival time, while Lemma 4 identifies the distribution of the mark associated with that first arrival.
+Lemma 4 can be viewed as a marked extension of Lemma 1. Lemma 1 characterizes the first arrival time of a Poisson process, whereas Lemma 4 characterizes the mark attached to that first arrival. Under the product intensity $P(dy)\,dt$, the temporal component and the mark component are separated: the Poisson mechanism determines when the first point appears, while the mark of that point is sampled according to the base distribution $P$. In this sense, Lemma 1 describes the distribution of the first arrival time, and Lemma 4 describes the distribution of the corresponding mark.
 $\blacklozenge$
 
 Applying this lemma to the current setting with $P=P_{Y \mid X}(\cdot \mid x)$, we obtain
