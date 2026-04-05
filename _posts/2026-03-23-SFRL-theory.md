@@ -24,10 +24,9 @@ $$\begin{align}
 I(X;Z|Y) \le \log\big(I(X;Y)+1\big) + 4.
 \end{align}$$
 It follows that
-$$
-\begin{align}
+$$\begin{align}
 H(Y|Z) \le I(X;Y) + \log\big(I(X;Y)+1\big) + 4.
-\end{align}
+\end{align}$$
 Moreover, if $X,Y$ are discrete random variables with cardinalities $|\mathcal X|,|\mathcal Y|$, then one can further restrict
 $$\begin{align}
 |\mathcal Z| \le |\mathcal X|(|\mathcal Y|-1)+2.
@@ -95,9 +94,8 @@ In summary, $Y$ is obtained by selecting the mark $\tilde Y_i$ corresponding to 
 
 We now provide an example to give an intuitive understanding. Suppose
 $$\begin{align}
-Y \sim \mathrm{Unif}[0,1],
-\qquad
-Y\,|\,\{X=x\} \sim f_{Y|X}(y|x).
+&Y \sim \mathrm{Unif}[0,1], \\
+&Y\,|\,\{X=x\} \sim f_{Y|X}(y|x).
 \end{align}$$
 
 In this case, the marked point process in the Poisson functional representation is $Z=\\{(\tilde Y_i,T_i)\\}\_{i=1,2,\dots},$ where $\tilde Y_i \overset{\text{i.i.d.}}{\sim} \mathrm{Unif}[0,1]$, and $\\{T_i\\}$ are the arrival times of a Poisson process with rate $1$, i.e., $T_i-T_{i-1}\overset{\text{i.i.d.}}{\sim} \text{Exp}(1)$ with $T_0=0$.
