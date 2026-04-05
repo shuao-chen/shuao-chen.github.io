@@ -865,20 +865,14 @@ d = |\mathcal X|(|\mathcal Y|-1)+1.
 
 Here, $|\mathcal X|(|\mathcal Y|-1)$ corresponds to the degrees of freedom of the joint probability $p(x,y|z)$, and the additional $+1$ corresponds to $H(Y|Z=z)$. The reason for including $H(Y|Z=z)$ is that during the reduction of $\mathcal Z$, one must simultaneously preserve
 $$\begin{align}
-p(x,y)=\sum_z p(z)p(x,y|z),
-\qquad
-H(Y|Z)=\sum_z p(z)H(Y|Z=z),
+p(x,y)&=\sum_z p(z)p(x,y|z), \\
+H(Y|Z)&=\sum_z p(z)H(Y|Z=z),
 \end{align}$$
 so both must be treated as constraints.
 
-Moreover, it suffices to record $y\in\\{1,\dots,|\mathcal Y|-1\\}$, since for each fixed $x$, the probabilities satisfy the normalization condition
-$$\begin{align}
-\sum_{y\in\mathcal Y} p(x,y|z)=p(x|z),
-\end{align}$$
-so the last component is uniquely determined by the others.
+Moreover, it suffices to record $y\in\\{1,\dots,|\mathcal Y|-1\\}$, since for each fixed $x$, the probabilities satisfy the normalization condition $\sum_{y\in\mathcal Y} p(x,y|z)=p(x|z)$, so the last component is uniquely determined by the others.
 
 From the above representation, the vector $\Big(H(Y \mid Z),\;p(x,y):x\in\mathcal X,\; y\in\\{1,\dots,\|\mathcal Y\|-1\\}\Big)$ can be expressed as a convex combination of $\\{v(z):z\in\mathcal Z\\}$, i.e., it lies in their convex hull.
-
 Applying Carathéodory’s theorem: in $\mathbb R^d$, any point in the convex hull of a set can be represented as a convex combination of at most $d+1$ points. Therefore, it suffices to use at most
 $$\begin{align}
 d+1 = |\mathcal X|(|\mathcal Y|-1)+2
