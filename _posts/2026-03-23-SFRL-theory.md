@@ -870,7 +870,7 @@ H(Y|Z)&=\sum_z p(z)H(Y|Z=z),
 \end{align}$$
 so both must be treated as constraints.
 
-Moreover, it suffices to record $y\in\\{1,\dots, |\mathcal Y|-1\\}$, since for each fixed $x$, the probabilities satisfy the normalization condition $\sum_{y\in\mathcal Y} p(x,y|z)=p(x|z)$, so the last component is uniquely determined by the others.
+Moreover, it suffices to record $y\in\\{1,\dots, \mid\mathcal Y\mid-1\\}$, since for each fixed $x$, the probabilities satisfy the normalization condition $\sum_{y\in\mathcal Y} p(x,y|z)=p(x|z)$, so the last component is uniquely determined by the others.
 
 From the above representation, the vector $\Big(H(Y \mid Z),\;p(x,y):x\in\mathcal X,\; y\in\\{1,\dots,\|\mathcal Y\|-1\\}\Big)$ can be expressed as a convex combination of $\\{v(z):z\in\mathcal Z\\}$, i.e., it lies in their convex hull.
 Applying Carathéodory’s theorem: in $\mathbb R^d$, any point in the convex hull of a set can be represented as a convex combination of at most $d+1$ points. Therefore, it suffices to use at most
