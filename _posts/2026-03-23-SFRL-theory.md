@@ -118,7 +118,7 @@ $$\begin{align}
 (\tilde Y_i, T_i) \mapsto \left(\tilde Y_i,\; \frac{T_i}{f_{Y|X}(\tilde Y_i|x)}\right).
 \end{align}$$
 
-By the mapping property of Poisson point processes, the transformed process is still a Poisson point process, whose intensity measure on $[0,1]\times\mathbb{R}_+$ is $f_{Y|X}(y|x)\,dy \times dt$.
+By the mapping property of Poisson point processes, the transformed process is still a Poisson point process, whose intensity measure on $[0,1]\times\mathbb{R}_+$ is $f_{Y\|X}(y\|x)\,dy \times dt$.
 
 **Remark 1.**
 The mapping property of Poisson point processes states that if a Poisson point process is transformed via a measurable mapping, then the resulting point process is still Poisson, with its intensity measure given by the pushforward of the original intensity measure under this mapping.
